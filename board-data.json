@@ -1,0 +1,1457 @@
+{
+ "milestones": [
+  {
+   "class": "checked",
+   "id": "m-demo",
+   "label": "Demo journey runs end to end",
+   "reached": true,
+   "when": "2026-10-23",
+   "checks": [
+    {
+     "leg": "verified",
+     "scope": "observed",
+     "when": "2026-10-23"
+    }
+   ]
+  },
+  {
+   "class": "checked",
+   "id": "m-teaser-wired",
+   "label": "Teaser flow wired in the real app",
+   "reached": false,
+   "checks": []
+  },
+  {
+   "class": "checked",
+   "id": "m-live",
+   "label": "Live at a real address",
+   "reached": false,
+   "checks": []
+  },
+  {
+   "class": "checked",
+   "id": "m-payments",
+   "label": "Payments taking money",
+   "reached": false,
+   "checks": []
+  },
+  {
+   "class": "checked",
+   "id": "m-policies",
+   "label": "Policies public",
+   "reached": false,
+   "checks": []
+  },
+  {
+   "class": "checked",
+   "id": "m-arrivals",
+   "label": "First users through the teaser",
+   "reached": false,
+   "source": "Source of first users: not named yet",
+   "checks": []
+  },
+  {
+   "class": "observed",
+   "id": "m-first-payer",
+   "label": "First paying customer",
+   "reached": false,
+   "source": "Observed at the payment provider",
+   "checks": []
+  },
+  {
+   "class": "observed",
+   "id": "m-ten-payers",
+   "label": "Ten paying customers",
+   "reached": false,
+   "source": "Observed at the payment provider",
+   "checks": []
+  }
+ ],
+ "note": "The board's single data source. Rows carry states; TILE states are never stored — they derive at render by the pinned rule: a tile shows its most-blocking open row (to-clarify flag first, then waiting, then being built, then not reported, then not started; a tile whose rows are all unreported renders Not reported); a tile is done-and-checked only when every row is done. Milestones are rows of a milestone kind, in two classes: checked work, and observed world facts (source named). Vocabulary identical across prototype and shared versions; migration is a re-home of this file, not a re-entry of states. Schema v2 adds per-item watch targets and watch health; proposed changes live in board/proposals.json, never inside item states, and land only on a partner's tap. Standing requirement (Andy, 2026-10-24): the board surfaces things not documented yet — said on a call but never became an item · built but never claimed or recorded · decided but never written down — as proposed entries, which become items only on a partner's confirmation.",
+ "price": {
+  "status": "to clarify",
+  "note": "The subscription price is a partners' decision, still to be confirmed together. No figure stands here."
+ },
+ "register": "quotajobs-board",
+ "schema_version": "2.6",
+ "sides_asof": {
+  "andy": "2026-10-26",
+  "tony": "2026-10-24"
+ },
+ "snapshot": {
+  "label": "Snapshot — not live",
+  "live": false,
+  "taken": "2026-10-27 ET (register 2.6 · 38 components · 10 parts · 28 history entries)"
+ },
+ "tiles": [
+  {
+   "decided": [
+    {
+     "text": "The email is asked up front (written in the specs; a joint call can revisit it)",
+     "by": "Andy's side",
+     "strength": "decided — in the specs",
+     "basis": "The free scan has to attach to an account so the allowance can be metered.",
+     "path": "Becomes joint when the partners settle email-up-front vs an anonymous first scan — a call topic.",
+     "cite": "Engine API spec of record"
+    }
+   ],
+   "done_test": "A new user can land, understand the offer in seconds, and create an account.",
+   "id": "land-signup",
+   "kind": "journey",
+   "name": "Land & sign up",
+   "owner": "Shared — the app step both versions carry",
+   "record": [
+    {
+     "label": "Feature map",
+     "path": "FEATURE_MAP.md"
+    }
+   ],
+   "rows": [
+    {
+     "id": "land-signup--landing",
+     "evidence": "verified",
+     "last_checked": "2026-10-23",
+     "state": "done",
+     "text": "Landing and account screens run in the demo app",
+     "component": "login--sign-up",
+     "checks": [
+      {
+       "leg": "built",
+       "scope": "demo",
+       "by": "Andy's demo run",
+       "when": "2026-10-23",
+       "note": "Checked in the demo app"
+      }
+     ],
+     "na_legs": [],
+     "last_changed": "2026-10-23"
+    }
+   ],
+   "step": 1,
+   "watch": {
+    "events": [
+     "pull_request_merged"
+    ],
+    "note": "Watch the app repo; a merged PR touching the landing/account screens drafts a proposal.",
+    "repo": "moopgit/quotajobs-build"
+   },
+   "why": "Where a new user arrives and makes an account. Nothing else on the board matters if this step loses people.",
+   "component": "login--sign-up"
+  },
+  {
+   "decided": [
+    {
+     "text": "Uploads are PDF or DOCX; the job text is pasted, not uploaded (November scope)",
+     "by": "Andy's side",
+     "strength": "decided — November scope",
+     "basis": "Parsing PDFs and DOCX covers how resumes actually arrive; pasted job text avoids scraping and keeps November small.",
+     "path": "Becomes joint when the November scope is reviewed together; Tony's build already works this way in practice.",
+     "cite": "Register planning record"
+    },
+    {
+     "text": "Parsing path (Oct 24 call): one path — Andy's ATS extractor. Tony stood down parallel parsing work so nothing is built twice",
+     "by": "Joint",
+     "strength": "decided",
+     "cite": "Partners' call, 2026-10-24"
+    }
+   ],
+   "done_test": "A user uploads a real resume and the product holds the parsed result the score will use.",
+   "id": "upload-resume",
+   "kind": "journey",
+   "name": "Upload a resume",
+   "owner": "Andy's side builds; the step is shared",
+   "record": [
+    {
+     "label": "API specs PR"
+    }
+   ],
+   "rows": [
+    {
+     "id": "upload-resume--parse",
+     "evidence": "verified",
+     "last_checked": "2026-10-19",
+     "state": "done",
+     "text": "The engine reads PDF and DOCX resumes (the /parse contract)",
+     "component": "resume-upload--reading",
+     "checks": [
+      {
+       "leg": "built",
+       "scope": "code",
+       "by": "Code Review verification of Slice 2",
+       "when": "2026-10-19",
+       "note": "Checked at code level; the live check is pending until first deploy"
+      }
+     ],
+     "na_legs": [],
+     "last_changed": "2026-10-19"
+    },
+    {
+     "id": "upload-resume--wiring",
+     "evidence": "verified",
+     "last_checked": "2026-10-24",
+     "note": "Slice 3 build started 2026-10-24 with Andy's approval. Settled when an uploaded resume reaches the engine in the wired app (this step's done test).",
+     "state": "building",
+     "text": "The app sends the upload to the engine (the wiring job)",
+     "group": "slice-3-wiring",
+     "claim": {
+      "builder": "Andy",
+      "line": "Wiring the app's upload to the engine (Slice 3).",
+      "claimed_on": "2026-10-24"
+     },
+     "component": "resume-upload--uploading",
+     "checks": [],
+     "na_legs": [],
+     "last_changed": "2026-10-24"
+    }
+   ],
+   "step": 2,
+   "watch": {
+    "events": [
+     "pull_request_merged"
+    ],
+    "note": "Upload wiring lives in the app repo; the parse contract is the API specs PR.",
+    "repo": "moopgit/quotajobs-build"
+   },
+   "why": "The resume is one of the two inputs every score is made from.",
+   "component": "resume-upload"
+  },
+  {
+   "decided": [
+    {
+     "text": "Teasers are unlimited and free",
+     "by": "Andy's side",
+     "strength": "decided — design",
+     "basis": "The teaser is the hook; charging or capping it would meter the thing that sells the breakdown.",
+     "path": "Becomes joint with the offer-shape clarification (the same open item as step 5).",
+     "cite": "Oct 11 session — Andy's brainstorming, in his words 'by no means locked in'"
+    },
+    {
+     "text": "A pre-filtered pair returns score 0 with a rejection flag, not an error",
+     "by": "Andy's side",
+     "strength": "decided — spec",
+     "basis": "A filtered pair is a product answer, not a failure; the user sees a 0 and a reason.",
+     "path": "Becomes joint through Tony's review of the API specs (PR #2), where this behavior is written.",
+     "cite": "Engine API spec of record"
+    }
+   ],
+   "done_test": "Paste a job description and get a teaser score back, end to end, in the real app.",
+   "id": "teaser",
+   "kind": "journey",
+   "name": "Paste a job, get the teaser",
+   "owner": "Andy's side builds; the step is shared",
+   "record": [
+    {
+     "label": "Match scoring spec",
+     "path": "match-scoring-spec-v1.md"
+    },
+    {
+     "label": "API specs PR"
+    }
+   ],
+   "rows": [
+    {
+     "id": "teaser--engine-score",
+     "evidence": "verified",
+     "last_checked": "2026-10-19",
+     "state": "done",
+     "text": "The engine scores a resume against a job and returns the teaser",
+     "component": "scoring--teaser",
+     "checks": [
+      {
+       "leg": "built",
+       "scope": "code",
+       "by": "Code Review verification of Slice 2",
+       "when": "2026-10-19",
+       "note": "Checked at code level; the live check is pending until first deploy"
+      }
+     ],
+     "na_legs": [],
+     "last_changed": "2026-10-19"
+    },
+    {
+     "id": "teaser--wiring",
+     "evidence": "verified",
+     "last_checked": "2026-10-24",
+     "note": "Same wiring job as the upload step.",
+     "state": "building",
+     "text": "The app wiring for the teaser screen",
+     "group": "slice-3-wiring",
+     "claim": {
+      "builder": "Andy",
+      "line": "Wiring the teaser screen in the app (Slice 3).",
+      "claimed_on": "2026-10-24"
+     },
+     "component": "scoring--teaser",
+     "blocked_by": [
+      "G-3"
+     ],
+     "kind_of_work": "build",
+     "checks": [],
+     "na_legs": [],
+     "last_changed": "2026-10-24"
+    }
+   ],
+   "step": 3,
+   "watch": {
+    "events": [
+     "pull_request_merged"
+    ],
+    "note": "Teaser wiring lives in the app repo.",
+    "repo": "moopgit/quotajobs-build"
+   },
+   "why": "The free first look — a score and a glimpse of the breakdown. The top of the funnel.",
+   "component": "scoring--teaser"
+  },
+  {
+   "decided": [
+    {
+     "text": "First full breakdown free; same-pair rescans free; the paywall lands at the second new scan",
+     "by": "Andy's side",
+     "strength": "decided — design",
+     "basis": "One real breakdown proves the value before any ask; rescanning the same pair costs the user nothing new.",
+     "path": "The free-allowance count is part of the offer-shape clarification — becomes joint when that clarifies.",
+     "cite": "Oct 11 session (Andy's design); product documents"
+    },
+    {
+     "text": "The paywall signal: success carries scans_remaining; at the limit the answer is 402 quota_exceeded (locked Oct 12)",
+     "by": "Andy's side",
+     "strength": "decided — revisable together",
+     "basis": "The app needs one unambiguous way to know the allowance is spent; a status code can't be half-read.",
+     "path": "Becomes joint through PR #2 — the contract is maintained jointly, and Tony's code implements against this signal.",
+     "cite": "Decision of 2026-10-12; engine API spec"
+    }
+   ],
+   "done_test": "A user sees one full breakdown free; the second new pair asks for payment; rescanning the same pair stays free.",
+   "id": "full-breakdown",
+   "kind": "journey",
+   "name": "Full breakdown & the free allowance",
+   "owner": "Andy's side builds",
+   "record": [
+    {
+     "label": "Free tier design record (Oct 11 session)",
+     "path": "free-tier-scan-limit-2026-10-11.md"
+    }
+   ],
+   "rows": [
+    {
+     "id": "full-breakdown--engine",
+     "evidence": "verified",
+     "last_checked": "2026-10-19",
+     "state": "done",
+     "text": "The engine returns the full breakdown and counts pairs",
+     "component": "scoring--full-breakdown",
+     "checks": [
+      {
+       "leg": "built",
+       "scope": "code",
+       "by": "Code Review verification of Slice 2",
+       "when": "2026-10-19",
+       "note": "Checked at code level; live database behavior NOT VERIFIED until first deploy"
+      }
+     ],
+     "na_legs": [],
+     "last_changed": "2026-10-19"
+    },
+    {
+     "id": "full-breakdown--app-metering",
+     "evidence": "verified",
+     "last_checked": "2026-10-19",
+     "state": "done",
+     "text": "The app counts usage for the allowance",
+     "component": "scoring--full-breakdown",
+     "checks": [
+      {
+       "leg": "built",
+       "scope": "code",
+       "by": "Code Review final re-verification of Slice 1",
+       "when": "2026-10-19",
+       "note": "Checked at code level"
+      }
+     ],
+     "na_legs": [],
+     "last_changed": "2026-10-19"
+    },
+    {
+     "id": "full-breakdown--free-scans",
+     "evidence": "verified",
+     "last_checked": "2026-10-24",
+     "note": "Andy's side's design number is 1 free full breakdown (Oct 11 design); the count itself is part of the open offer-shape clarification at step 5.",
+     "state": "building",
+     "text": "The app gives the free scans in Andy's side's design",
+     "group": "slice-3-wiring",
+     "claim": {
+      "builder": "Andy",
+      "line": "Building the app side of the free-scan count — dropping the placeholder of 3 (Slice 3).",
+      "claimed_on": "2026-10-24"
+     },
+     "component": "scoring--free-scans",
+     "blocked_by": [
+      "G-1"
+     ],
+     "kind_of_work": "build",
+     "checks": [],
+     "na_legs": [],
+     "last_changed": "2026-10-24"
+    },
+    {
+     "id": "full-breakdown--wiring",
+     "evidence": "verified",
+     "last_checked": "2026-10-24",
+     "note": "Same wiring job.",
+     "state": "building",
+     "text": "The last wiring piece between the app and the engine",
+     "group": "slice-3-wiring",
+     "claim": {
+      "builder": "Andy",
+      "line": "The last wiring piece between the app and the engine (Slice 3).",
+      "claimed_on": "2026-10-24"
+     },
+     "component": "scoring--full-breakdown",
+     "checks": [],
+     "na_legs": [],
+     "last_changed": "2026-10-24"
+    }
+   ],
+   "step": 4,
+   "watch": {
+    "events": [
+     "pull_request_merged"
+    ],
+    "note": "Metering and breakdown wiring live in the app repo.",
+    "repo": "moopgit/quotajobs-build"
+   },
+   "why": "The core value: the full match breakdown. The free allowance is what turns into paid demand.",
+   "component": "scoring--full-breakdown"
+  },
+  {
+   "decided": [
+    {
+     "text": "The paywall appears at the second new scan, not before",
+     "by": "Andy's side",
+     "strength": "decided — design",
+     "basis": "The first breakdown is the free proof; the ask belongs at the moment of the second want.",
+     "path": "Both decisions below wait on the offer shape being clarified.",
+     "cite": "Product documents"
+    },
+    {
+     "text": "Free-tier direction (Oct 24 call): a free tier exists with real free value — browsing jobs that fit, application tracking, a couple of free analyses. How many analyses, and the card question, stay open",
+     "by": "Joint",
+     "strength": "direction — not a decided term",
+     "cite": "Partners' call, 2026-10-24"
+    }
+   ],
+   "done_test": "At the limit, the user meets a clear paywall that names the price and what it buys.",
+   "id": "paywall-moment",
+   "kind": "journey",
+   "name": "The paywall",
+   "owner": "Joint — the shape of the offer is a partners' decision",
+   "record": [
+    {
+     "label": "Free tier design record (Oct 11 session)",
+     "path": "free-tier-scan-limit-2026-10-11.md"
+    },
+    {
+     "label": "API specs PR"
+    }
+   ],
+   "rows": [
+    {
+     "id": "paywall-moment--demo",
+     "evidence": "verified",
+     "last_checked": "2026-10-23",
+     "state": "done",
+     "text": "The paywall runs in the demo journey",
+     "component": "charging--paywall",
+     "checks": [
+      {
+       "leg": "built",
+       "scope": "demo",
+       "by": "Andy's demo run",
+       "when": "2026-10-23",
+       "note": "Checked in the demo journey"
+      }
+     ],
+     "na_legs": [],
+     "last_changed": "2026-10-23"
+    },
+    {
+     "id": "paywall-moment--wiring",
+     "evidence": "verified",
+     "last_checked": "2026-10-24",
+     "note": "Rides the wiring job.",
+     "state": "building",
+     "text": "The paywall moment in the real wired flow",
+     "group": "slice-3-wiring",
+     "claim": {
+      "builder": "Andy",
+      "line": "Wiring the paywall moment into the real flow (Slice 3).",
+      "claimed_on": "2026-10-24"
+     },
+     "component": "charging--paywall",
+     "blocked_by": [
+      "G-2"
+     ],
+     "kind_of_work": "build",
+     "checks": [],
+     "na_legs": [],
+     "last_changed": "2026-10-24"
+    }
+   ],
+   "step": 5,
+   "watch": {
+    "events": [
+     "pull_request_merged"
+    ],
+    "note": "The paywall's shape is a partners' decision — no watch settles it; the watch only sees the code land.",
+    "repo": "moopgit/quotajobs-build"
+   },
+   "why": "Where free turns into paid. The moment has to feel fair or the funnel dies here.",
+   "to_clarify": {
+    "note": "Open — not yet decided together. Andy's side holds a design from the product documents: the first full breakdown free, no card (designed on Andy's side; not yet taken up with Tony). Tony's messages describe a 7-day process that asks for a card up front; its exact shape has not been described yet, and the 7-day trial he described on the Oct 24 call was his payment provider's test setup, not a product offer. On the Oct 24 call the partners aligned on the direction — a free tier with real value: browsing jobs that fit, application tracking, a couple of free analyses — and left the exact shape to clarify together: how many free analyses, and whether a card is asked for up front.",
+    "resolver": "Andy and Tony together",
+    "settling_event": "A later call, or Tony describing his 7-day process end to end",
+    "status": "open — to clarify"
+   },
+   "component": "charging--paywall"
+  },
+  {
+   "decided": [
+    {
+     "text": "Payments run through the payment provider",
+     "by": "Tony's side",
+     "strength": "decided — in his setup, reported",
+     "basis": "His, as reported: a few percent per transaction and free until there are paying subscribers.",
+     "path": "Already the working arrangement; becomes joint on the record when the partners note it together.",
+     "cite": "Tony's reports; partners' call, 2026-10-24"
+    },
+    {
+     "text": "Interim entity (Oct 24 call): payments run under the partner's company until a threshold is banked; then the partners form a joint entity together.",
+     "by": "Joint",
+     "strength": "decided",
+     "cite": "Partners' call, 2026-10-24"
+    }
+   ],
+   "done_test": "A real card subscribes, the account shows the paid tier, and a failed payment is handled without losing the user.",
+   "id": "subscribe-pay",
+   "kind": "journey",
+   "name": "Subscribe & pay",
+   "owner": "Tony's side",
+   "record": [
+    {
+     "label": "Privacy policy draft",
+     "path": "privacy-policy.md"
+    },
+    {
+     "label": "Refund policy draft",
+     "path": "refund-policy.md"
+    }
+   ],
+   "rows": [
+    {
+     "id": "subscribe-pay--provider",
+     "evidence": "reported",
+     "last_checked": "2026-10-24",
+     "note": "The partner's reports: the payment provider's business audit is mid-flight; payments run under the partner's company as the interim entity.",
+     "state": "building",
+     "text": "Payments through the payment provider in Tony's setup",
+     "component": "charging--subscribing",
+     "blocked_by": [
+      "G-2"
+     ],
+     "kind_of_work": "build",
+     "checks": [],
+     "na_legs": [],
+     "last_changed": "2026-10-24"
+    },
+    {
+     "id": "subscribe-pay--card-process",
+     "evidence": "reported",
+     "last_checked": "2026-10-24",
+     "note": "Mentioned Oct 23; on the Oct 24 call it came up only as testing friction (the test card must be re-entered roughly every 24 hours). Its exact shape has still not been described. Next step is Tony's: describe the process end to end — that description also settles the step-5 clarification.",
+     "state": "unknown",
+     "text": "Tony's 7-day card-required process",
+     "component": "charging--subscribing",
+     "checks": [],
+     "na_legs": [],
+     "last_changed": "2026-10-24"
+    }
+   ],
+   "step": 6,
+   "watch": {
+    "events": [
+     "pull_request_merged",
+     "push"
+    ],
+    "note": "Payment facts themselves (inside the payment provider) have no machine path yet — they ride reports, and the freshness stamp shows their age.",
+    "repo": "the partner's repository"
+   },
+   "why": "The money step. Until this works with real cards there is no business, only a demo.",
+   "component": "charging--subscribing"
+  },
+  {
+   "decided": [
+    {
+     "text": "November scope does not expand the tracker; it stays as it is",
+     "by": "Andy's side",
+     "strength": "decided — November scope",
+     "basis": "November is the teaser and the money loop; the tracker is not the product's proof.",
+     "path": "Becomes joint when November scope is reviewed together.",
+     "cite": "Register planning record"
+    }
+   ],
+   "done_test": "A returning user finds everything they saved, as they left it.",
+   "id": "account-stuff",
+   "kind": "journey",
+   "name": "Your account & saved jobs",
+   "owner": "Shared — the app area both versions carry",
+   "record": [
+    {
+     "label": "Feature map",
+     "path": "FEATURE_MAP.md"
+    }
+   ],
+   "rows": [
+    {
+     "id": "account-stuff--account",
+     "evidence": "read",
+     "last_checked": "2026-10-23",
+     "state": "done",
+     "text": "The account area (saved jobs, applications, documents) exists in the app",
+     "component": "accounts--saved-jobs",
+     "checks": [
+      {
+       "leg": "built",
+       "scope": "code",
+       "by": "Read from Andy's build copy",
+       "when": "2026-10-23",
+       "note": "Read from Andy's build copy; not run-checked"
+      }
+     ],
+     "na_legs": [],
+     "last_changed": "2026-10-23"
+    },
+    {
+     "id": "account-stuff--admin",
+     "evidence": "reported",
+     "last_checked": "2026-10-24",
+     "note": "Reported by Tony on the Oct 24 call; Andy has admin access on it.",
+     "state": "done",
+     "text": "An admin portal and support ticketing exist on Tony's build",
+     "component": "accounts--billing-settings",
+     "checks": [
+      {
+       "leg": "built",
+       "scope": "reported",
+       "by": "the partner's report, relayed on the 2026-10-24 call",
+       "when": "2026-10-24"
+      }
+     ],
+     "na_legs": [],
+     "last_changed": "2026-10-24",
+     "watched_by": {
+      "kind": "person",
+      "name": "the partner's reports",
+      "event": "partners' calls"
+     }
+    }
+   ],
+   "step": 7,
+   "watch": {
+    "events": [
+     "pull_request_merged"
+    ],
+    "note": "Account area lives in the app repo.",
+    "repo": "moopgit/quotajobs-build"
+   },
+   "why": "Where a user's jobs, applications, and documents live between visits.",
+   "component": "accounts"
+  },
+  {
+   "decided": [
+    {
+     "text": "The API specs are the contract — PR #2 on Tony's repo, awaiting his review",
+     "by": "Andy's side",
+     "strength": "decided — proposed to the partnership",
+     "basis": "One written contract is what lets both sides build without waiting on each other.",
+     "path": "Becomes joint at Tony's review/merge of PR #2 — the contract is maintained jointly from there.",
+     "cite": "Partnership text (2026-10-13); PR #2"
+    },
+    {
+     "text": "The engine's source stays on Andy's side; the contract is what's shared",
+     "by": "Andy's side",
+     "strength": "decided",
+     "basis": "Implementation behind the interface is one side's workshop; the interface is the shared property.",
+     "path": "Becomes joint with Tony's acknowledgment of the partnership terms (notice, not approval, is the agreed shape for engine changes his code will feel).",
+     "cite": "Partnership text (2026-10-13, signed by Andy; Tony's acknowledgment not yet on record)"
+    }
+   ],
+   "done_test": "The engine answers /parse and /score to spec, with the paywall signal behaving as locked.",
+   "id": "engine",
+   "kind": "component",
+   "name": "The engine (scoring service)",
+   "owner": "Andy's side",
+   "record": [
+    {
+     "label": "API specs PR"
+    }
+   ],
+   "rows": [
+    {
+     "id": "engine--api",
+     "evidence": "verified",
+     "last_checked": "2026-10-19",
+     "state": "done",
+     "text": "Engine API v1 built (parse, score, teaser vs full, quota)",
+     "component": "scoring--engine",
+     "checks": [
+      {
+       "leg": "built",
+       "scope": "code",
+       "by": "Code Review — PASS, clean at code level",
+       "when": "2026-10-19",
+       "note": "Checked at code level — never yet run on a host; that check closes at deploy"
+      }
+     ],
+     "na_legs": [],
+     "last_changed": "2026-10-19"
+    }
+   ],
+   "under": "Steps 2–4",
+   "watch": {
+    "events": [
+     "pull_request_merged"
+    ],
+    "note": "Engine source lives in the app repo on Andy's side; the contract is the API specs PR on Tony's repo.",
+    "repo": "moopgit/quotajobs-build"
+   },
+   "why": "The service that reads resumes, scores pairs, and counts the allowance. Andy's side builds it; the app talks to it over the specs in PR #2.",
+   "component": "scoring--engine"
+  },
+  {
+   "decided": [],
+   "done_test": "Terms, privacy, and refund pages are public, name the company, and carry no blanks.",
+   "id": "policies",
+   "kind": "component",
+   "name": "Terms & policies",
+   "owner": "Joint — Tony raised them; the content is the partners'",
+   "record": [
+    {
+     "label": "Privacy policy draft",
+     "path": "privacy-policy.md"
+    },
+    {
+     "label": "Refund policy draft",
+     "path": "refund-policy.md"
+    }
+   ],
+   "rows": [
+    {
+     "id": "policies--drafts",
+     "evidence": "verified",
+     "last_checked": "2026-10-23",
+     "state": "done",
+     "text": "Privacy and refund drafts exist on Andy's side",
+     "component": "getting-it-live--terms-policies",
+     "checks": [
+      {
+       "leg": "built",
+       "scope": "draft",
+       "by": "Lane policy check",
+       "when": "2026-10-23",
+       "note": "Draft templates — blanks unfilled: no company named, no dates, contact emails are placeholders"
+      }
+     ],
+     "na_legs": [
+      "runs"
+     ],
+     "na_note": "Drafts do not run; the published pages carry the live leg.",
+     "last_changed": "2026-10-23"
+    },
+    {
+     "id": "policies--provider-proof",
+     "evidence": "reported",
+     "last_checked": "2026-10-24",
+     "note": "Tony's report (Oct 23): proving was not working in testing; almost fixed. Oct 24 call: still in the provider's proving process. Unclaimed — Tony's work, reported in motion Oct 24.",
+     "state": "building",
+     "text": "Policies being proven with the payment provider",
+     "component": "getting-it-live--terms-policies",
+     "checks": [],
+     "na_legs": [],
+     "last_changed": "2026-10-24",
+     "watched_by": {
+      "kind": "person",
+      "name": "the partner's reports",
+      "event": "partners' calls"
+     }
+    },
+    {
+     "id": "policies--terms-page",
+     "evidence": "verified",
+     "last_checked": "2026-10-23",
+     "note": "No terms document exists on Andy's side yet. Next step: Andy's side drafts the terms page and fills all three documents — the company name is now known (the partner's company, the interim entity agreed on the Oct 24 call), and Tony's protection-language point, recorded on this tile, goes into the drafts.",
+     "state": "not_started",
+     "text": "A terms page exists and all three are filled in",
+     "component": "getting-it-live--terms-policies",
+     "checks": [],
+     "na_legs": [],
+     "last_changed": "2026-10-23"
+    }
+   ],
+   "under": "Step 6",
+   "watch": {
+    "events": [
+     "pull_request_merged",
+     "push"
+    ],
+    "note": "Policy proving happens on Tony's side with the payment provider; drafts live in this workspace.",
+    "repo": "the partner's repository"
+   },
+   "why": "The public promises: what users agree to, how their data is handled, how refunds work. The payment provider requires them before real money moves.",
+   "positions": [
+    {
+     "text": "Protection for the business must be stated expressly in the public terms and privacy policy",
+     "by": "Tony's side",
+     "strength": "position",
+     "basis": "His point (Oct 23): protection language belongs in the public documents, stated expressly. Adopted into Andy's side's drafting direction; the drafting obligation records as a decided entry once the drafts carry it.",
+     "cite": "Tony's point, 2026-10-23"
+    }
+   ],
+   "component": "getting-it-live--terms-policies"
+  },
+  {
+   "decided": [
+    {
+     "text": "The build leaves the old builder for GitHub + deploy (partnership direction)",
+     "by": "Joint",
+     "strength": "direction",
+     "basis": "The old builder can't hold the partnership's way of working (repos, reviews, deploys).",
+     "cite": "Partnership direction; both builds already moving this way in practice"
+    },
+    {
+     "text": "Beta and publicity (Oct 24 call): a beta-user round on fake-card pro access once the product is functional; any LinkedIn tease waits until the product is functional, not a shell",
+     "by": "Joint",
+     "strength": "decided",
+     "cite": "Partners' call, 2026-10-24"
+    }
+   ],
+   "done_test": "A stranger can open the address, sign up, and run the journey.",
+   "id": "going-live",
+   "kind": "component",
+   "name": "Going live (hosting & deploy)",
+   "owner": "starts on Andy's word; the work is shared",
+   "record": [
+    {
+     "label": "API specs PR",
+     "path": "MIGRATION_PLAN.md"
+    }
+   ],
+   "rows": [
+    {
+     "id": "going-live--first-deploy",
+     "evidence": "verified",
+     "last_checked": "2026-10-24",
+     "note": "The deploy go is Andy's and has not been given",
+     "state": "not_started",
+     "text": "First deploy of app and engine",
+     "component": "getting-it-live--hosting",
+     "checks": [],
+     "na_legs": [],
+     "last_changed": "2026-10-24"
+    }
+   ],
+   "under": "The whole journey",
+   "watch": {
+    "events": [],
+    "note": "No watch — deploy does not exist yet. The deploy go is a decision, taken by a partner, never inferred.",
+    "repo": null
+   },
+   "why": "Nothing on this board is real to a customer until the app and the engine run at a public address.",
+   "component": "getting-it-live"
+  }
+ ],
+ "version": 1,
+ "vocabulary": {
+  "building": "Being built",
+  "done": "Done & checked",
+  "not_started": "Not started",
+  "unknown": "Not reported",
+  "waiting": "Waiting",
+  "built": "Built — to check"
+ },
+ "watch_health": {
+  "rule": "If a watch goes silent, its line reads 'Not reported — watch silent since [date]' on the board. A broken watcher must fail loud, never blend into a quiet repo.",
+  "sources": [
+   {
+    "last_signal": null,
+    "name": "moopgit/quotajobs-build",
+    "status": "watch not wired yet"
+   },
+   {
+    "last_signal": null,
+    "name": "the partner's repository",
+    "status": "watch not wired yet — Tony's opt-in has not been asked yet"
+   },
+   {
+    "last_signal": null,
+    "name": "the payment provider",
+    "status": "no machine path yet — facts ride reports"
+   }
+  ]
+ },
+ "call_log": [
+  {
+   "date": "2026-10-11",
+   "source": "Partners' working session (transcript on file)",
+   "items_touched": [
+    "engine",
+    "going-live"
+   ]
+  },
+  {
+   "date": "2026-10-24",
+   "source": "Partners' call (transcript on file)",
+   "items_touched": [
+    "paywall-moment",
+    "subscribe-pay",
+    "price",
+    "upload-resume",
+    "going-live",
+    "account-stuff"
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "id": "G-1",
+   "kind": "positions differ",
+   "item": "paywall-moment",
+   "record_says": "Andy's side holds a design: first full breakdown free, no card.",
+   "source_shows": "Tony's messages describe a 7-day process that asks for a card up front; never taken up together.",
+   "citation": "Step 5 to-clarify note; Oct 11 session; Oct 24 call",
+   "clarifies_when": "A later call, or Tony describing his 7-day process end to end",
+   "raised": "2026-10-24",
+   "status": "open — to clarify",
+   "node": "business--offer",
+   "question": "What does the free first look include, and is a card asked for up front?",
+   "whose_move": "Joint move",
+   "couples_with": [
+    "G-2"
+   ],
+   "kind_of_work": "decide",
+   "watch_tags": [
+    "needs-call",
+    "coupled"
+   ],
+   "how": "One partners' call; Andy's side brings its settled position and the trial shape from the offer documents.",
+   "guide": {
+    "owner": "Joint (proposed)",
+    "act": "Decide the paywall moment & offer terms",
+    "done_when": "a later call or Tony describing his 7-day process end to end",
+    "how": "one partners' call; Andy's side brings settled position and trial shape from offer documents",
+    "watch": "needs-call · coupled with G-2",
+    "send_back": "agreed offer terms and card timing entered in register"
+   },
+   "watched_by": {
+    "kind": "person",
+    "name": "the partners",
+    "event": "partners' calls"
+   }
+  },
+  {
+   "id": "G-2",
+   "kind": "figures at different strengths",
+   "item": "price",
+   "record_says": "The documents carry candidate figures that were never ruled on.",
+   "source_shows": "On the Oct 24 call both partners spoke of a monthly figure as a working number — spoken, not decided.",
+   "citation": "Partners' call, 2026-10-24",
+   "clarifies_when": "The partners setting the price together",
+   "raised": "2026-10-24",
+   "status": "open — to clarify",
+   "node": "business--price-tiers",
+   "question": "What does the subscription cost?",
+   "whose_move": "Joint move",
+   "couples_with": [
+    "G-1"
+   ],
+   "kind_of_work": "decide",
+   "watch_tags": [
+    "needs-call",
+    "coupled"
+   ],
+   "how": "One partners' call; the candidate figures and their reasoning already stand in the business documents, at their strengths.",
+   "guide": {
+    "owner": "Joint (proposed)",
+    "act": "Decide the monthly subscription price",
+    "done_when": "the partners set the price together",
+    "how": "one partners' call; candidate figures and reasoning stand in business documents",
+    "watch": "needs-call · coupled with G-1",
+    "send_back": "joint price ruling entered in register"
+   },
+   "watched_by": {
+    "kind": "person",
+    "name": "the partners",
+    "event": "partners' calls"
+   }
+  },
+  {
+   "id": "G-3",
+   "kind": "discussed, not settled",
+   "item": "The engine and the funnel shape",
+   "record_says": "Specs assume email up front and the teaser-to-paywall funnel as designed.",
+   "source_shows": "Discussed across sessions; never settled together as one shape.",
+   "citation": "Discussed across the partners' October sessions; never settled together as one shape",
+   "clarifies_when": "The partners settle the funnel shape together — before the teaser wiring makes it load-bearing (that wiring is now being built)",
+   "raised": "2026-10-24",
+   "status": "open — to clarify",
+   "node": "scoring",
+   "question": "What shape is the funnel — email up front, and how the teaser leads to the paywall?",
+   "whose_move": "Joint move",
+   "kind_of_work": "decide",
+   "watch_tags": [],
+   "how": "Walk the built teaser flow together and rule on its shape.",
+   "guide": {
+    "owner": "Joint (proposed)",
+    "act": "Decide the funnel shape and email placement",
+    "done_when": "the partners settle the funnel shape together",
+    "how": "Walk the built teaser flow together and rule on its shape.",
+    "watch": "unblocks teaser wiring (scoring--teaser)",
+    "send_back": "agreed funnel specification entered in register"
+   },
+   "watched_by": {
+    "kind": "person",
+    "name": "the partners",
+    "event": "partners' calls"
+   }
+  },
+  {
+   "id": "G-4",
+   "kind": "duplication watch",
+   "item": "upload-resume",
+   "record_says": "One parsing path — Andy's ATS extractor.",
+   "source_shows": "Tony stood down parallel parsing work on the Oct 24 call.",
+   "citation": "Partners' call, 2026-10-24",
+   "clarifies_when": "Settled on the Oct 24 call",
+   "raised": "2026-10-24",
+   "status": "settled 2026-10-24",
+   "node": "resume-upload--reading",
+   "question": "How does a resume get in — one reading path, or two?",
+   "whose_move": "Settled — no move",
+   "watched_by": {
+    "kind": "person",
+    "name": "the partners",
+    "event": "partners' calls"
+   }
+  },
+  {
+   "id": "G-5",
+   "kind": "idea strength",
+   "item": "A third tier",
+   "record_says": "Nothing decided; no tier beyond the one paid tier exists in the documents.",
+   "source_shows": "The partner floated a higher tier with career-coach features on the Oct 24 call — idea stage.",
+   "citation": "Partners' call, 2026-10-24",
+   "clarifies_when": "Either partner bringing it back as a proposal",
+   "raised": "2026-10-24",
+   "status": "open — idea only",
+   "node": "business--price-tiers",
+   "question": "Is there a third tier, above the one paid tier?",
+   "whose_move": "Tony floated it; either partner can bring it back",
+   "kind_of_work": "decide",
+   "watch_tags": [],
+   "how": "A conversation, best raised with the price decision; a third tier prices against the first.",
+   "guide": {
+    "owner": "Either partner (proposed)",
+    "act": "Decide whether to introduce a third tier",
+    "done_when": "either partner brings it back as a proposal",
+    "how": "conversation raised with price decision; prices against first tier",
+    "watch": "prices against first tier; no active dependencies",
+    "send_back": "third-tier proposal or parked ruling entered in register"
+   },
+   "watched_by": {
+    "kind": "person",
+    "name": "the partners",
+    "event": "partners' calls"
+   }
+  }
+ ],
+ "board_cost": {
+  "as_of": "2026-10-24",
+  "line": "Work so far: one build day and one testing day (Oct 24). Dollar costs get tracked from the next update."
+ },
+ "group_definition": "Optional row field (schema 2.2): a row may carry one group key naming a job that spans several rows. A group carries no priority, ownership, or ordering meaning; claims stay on the rows. Keys are identifiers and never print - faces print the group's label.",
+ "groups": {
+  "slice-3-wiring": {
+   "label": "Connecting the app to the engine",
+   "note": "One job across Steps 2-5: the five claimed Slice 3 wiring rows. Grouped in the data at the 2.2 landing (2026-10-25)."
+  }
+ },
+ "components": {
+  "marketing": {
+   "label": "Marketing plan",
+   "kind": "area",
+   "parent": null,
+   "order": 1,
+   "purpose": "How people first hear about QuotaJobs, and what brings them to the door.",
+   "birth": "proposed"
+  },
+  "marketing--getting-found": {
+   "label": "Getting found",
+   "kind": "area",
+   "parent": "marketing",
+   "order": 1,
+   "purpose": "Where users first hear of it — search, communities, word of mouth.",
+   "birth": "proposed"
+  },
+  "marketing--landing-page": {
+   "label": "The landing page",
+   "kind": "area",
+   "parent": "marketing",
+   "order": 2,
+   "purpose": "What a visitor sees first, before any account exists.",
+   "birth": "held"
+  },
+  "marketing--launch-outreach": {
+   "label": "Launch & outreach",
+   "kind": "area",
+   "parent": "marketing",
+   "order": 3,
+   "purpose": "How the first users are invited in — a hand-picked beta first.",
+   "birth": "proposed"
+  },
+  "business": {
+   "label": "Business plan",
+   "kind": "area",
+   "parent": null,
+   "order": 2,
+   "purpose": "The venture's offer, prices, money, and the rules that protect people's data.",
+   "birth": "held"
+  },
+  "business--offer": {
+   "label": "The offer",
+   "kind": "area",
+   "parent": "business",
+   "order": 1,
+   "purpose": "The free-to-paid boundary: what is free, what is paid, and why.",
+   "birth": "held",
+   "decision": true
+  },
+  "business--price-tiers": {
+   "label": "Price & tiers",
+   "kind": "area",
+   "parent": "business",
+   "order": 2,
+   "purpose": "The price and the tiers. No number stands here until the price is decided.",
+   "birth": "held",
+   "decision": true
+  },
+  "business--money": {
+   "label": "Money in & out",
+   "kind": "area",
+   "parent": "business",
+   "order": 3,
+   "purpose": "What the venture spends and takes in — the tools and services it pays for.",
+   "birth": "proposed"
+  },
+  "business--privacy": {
+   "label": "Privacy & people's data",
+   "kind": "area",
+   "parent": "business",
+   "order": 4,
+   "purpose": "How people's data — resumes are personal — is handled, stored, and protected.",
+   "birth": "proposed"
+  },
+  "design": {
+   "label": "Design",
+   "kind": "area",
+   "parent": null,
+   "order": 3,
+   "purpose": "What QuotaJobs looks like and what each screen says, including this board.",
+   "birth": "held"
+  },
+  "design--look-brand": {
+   "label": "Look & brand",
+   "kind": "area",
+   "parent": "design",
+   "order": 1,
+   "purpose": "Colors, type, and the visual identity across the product and this board.",
+   "birth": "held"
+  },
+  "design--app-screens": {
+   "label": "The app screens",
+   "kind": "area",
+   "parent": "design",
+   "order": 2,
+   "purpose": "What each screen of the app shows and says.",
+   "birth": "held"
+  },
+  "design--board-itself": {
+   "label": "The board itself",
+   "kind": "area",
+   "parent": "design",
+   "order": 3,
+   "purpose": "This board — the partners' shared picture of the plan.",
+   "birth": "held"
+  },
+  "login": {
+   "label": "Login",
+   "kind": "feature",
+   "parent": null,
+   "order": 4,
+   "purpose": "Making an account and coming back to it.",
+   "birth": "held"
+  },
+  "login--sign-up": {
+   "label": "Sign up",
+   "kind": "feature",
+   "parent": "login",
+   "order": 1,
+   "purpose": "Making an account.",
+   "birth": "held"
+  },
+  "login--sign-in": {
+   "label": "Sign in & accounts",
+   "kind": "feature",
+   "parent": "login",
+   "order": 2,
+   "purpose": "Coming back, and account basics.",
+   "birth": "held"
+  },
+  "resume-upload": {
+   "label": "Resume upload",
+   "kind": "feature",
+   "parent": null,
+   "order": 5,
+   "purpose": "Getting a resume in and read correctly.",
+   "birth": "held"
+  },
+  "resume-upload--uploading": {
+   "label": "Uploading",
+   "kind": "feature",
+   "parent": "resume-upload",
+   "order": 1,
+   "purpose": "Getting the file in.",
+   "birth": "held"
+  },
+  "resume-upload--reading": {
+   "label": "Reading the resume",
+   "kind": "feature",
+   "parent": "resume-upload",
+   "order": 2,
+   "purpose": "Reading the resume — one parsing path, the ATS extractor.",
+   "birth": "held"
+  },
+  "scoring": {
+   "label": "Scoring & the breakdown",
+   "kind": "feature",
+   "parent": null,
+   "order": 6,
+   "purpose": "The score, the free first look, and the full breakdown it unlocks.",
+   "birth": "held"
+  },
+  "scoring--engine": {
+   "label": "The engine",
+   "kind": "feature",
+   "parent": "scoring",
+   "order": 1,
+   "purpose": "The scoring service behind the app.",
+   "birth": "held"
+  },
+  "scoring--teaser": {
+   "label": "The teaser",
+   "kind": "feature",
+   "parent": "scoring",
+   "order": 2,
+   "purpose": "The free first look at a job match.",
+   "birth": "held"
+  },
+  "scoring--full-breakdown": {
+   "label": "The full breakdown",
+   "kind": "feature",
+   "parent": "scoring",
+   "order": 3,
+   "purpose": "The paid depth: where a job stands and what to fix.",
+   "birth": "held"
+  },
+  "scoring--free-scans": {
+   "label": "Free scans",
+   "kind": "feature",
+   "parent": "scoring",
+   "order": 4,
+   "purpose": "How many full breakdowns are free — the count as built. What is free is decided under Business plan's offer.",
+   "birth": "held"
+  },
+  "scoring--scores-true": {
+   "label": "The scores are true",
+   "kind": "outcome",
+   "parent": "scoring",
+   "order": 5,
+   "purpose": "Whether the score tracks real fit.",
+   "birth": "proposed",
+   "evidence_line": "Users' results matching their scores — checked against what happens after a breakdown."
+  },
+  "charging": {
+   "label": "Charging",
+   "kind": "feature",
+   "parent": null,
+   "order": 7,
+   "purpose": "Where free turns into paid, and paying itself.",
+   "birth": "held"
+  },
+  "charging--paywall": {
+   "label": "The paywall",
+   "kind": "feature",
+   "parent": "charging",
+   "order": 1,
+   "purpose": "Where free turns into paid.",
+   "birth": "held"
+  },
+  "charging--subscribing": {
+   "label": "Subscribing & paying",
+   "kind": "feature",
+   "parent": "charging",
+   "order": 2,
+   "purpose": "Checkout, the payment provider, and the confirmations behind them.",
+   "birth": "held"
+  },
+  "accounts": {
+   "label": "Accounts & saved jobs",
+   "kind": "feature",
+   "parent": null,
+   "order": 8,
+   "purpose": "A customer's account, saved jobs, billing and settings.",
+   "birth": "held"
+  },
+  "accounts--saved-jobs": {
+   "label": "Saved jobs",
+   "kind": "feature",
+   "parent": "accounts",
+   "order": 1,
+   "purpose": "Jobs a customer keeps to work on.",
+   "birth": "held"
+  },
+  "accounts--billing-settings": {
+   "label": "Billing & settings",
+   "kind": "feature",
+   "parent": "accounts",
+   "order": 2,
+   "purpose": "Billing and account settings.",
+   "birth": "held"
+  },
+  "why-people-stay": {
+   "label": "Why people stay",
+   "kind": "outcome",
+   "parent": null,
+   "order": 9,
+   "purpose": "Whether people come back, and whether they trust the scores. Claims about users, standing only on evidence.",
+   "birth": "proposed"
+  },
+  "why-people-stay--reason-to-return": {
+   "label": "A reason to come back",
+   "kind": "outcome",
+   "parent": "why-people-stay",
+   "order": 1,
+   "purpose": "A reason to come back.",
+   "birth": "proposed",
+   "evidence_line": "Repeat use — customers returning to score another job."
+  },
+  "why-people-stay--trust": {
+   "label": "Trust in the scores",
+   "kind": "outcome",
+   "parent": "why-people-stay",
+   "order": 2,
+   "purpose": "Trust in the scores.",
+   "birth": "proposed",
+   "evidence_line": "Users acting on a breakdown more than once."
+  },
+  "getting-it-live": {
+   "label": "Getting it live",
+   "kind": "area",
+   "parent": null,
+   "order": 10,
+   "purpose": "Hosting, the public policies, and the money loop proven end to end. Retires itself when the first deploy and the money loop are proven.",
+   "birth": "held"
+  },
+  "getting-it-live--hosting": {
+   "label": "Hosting & the real address",
+   "kind": "area",
+   "parent": "getting-it-live",
+   "order": 1,
+   "purpose": "Where the app lives and its real address.",
+   "birth": "held"
+  },
+  "getting-it-live--terms-policies": {
+   "label": "Terms & policies",
+   "kind": "area",
+   "parent": "getting-it-live",
+   "order": 2,
+   "purpose": "The public terms and policies page.",
+   "birth": "held"
+  },
+  "getting-it-live--money-loop": {
+   "label": "The money loop working",
+   "kind": "area",
+   "parent": "getting-it-live",
+   "order": 3,
+   "purpose": "Payments proven end to end, from checkout to money received. Its state is read from the milestones and the paying work, never written by hand.",
+   "birth": "held"
+  }
+ },
+ "standing_principles": [
+  {
+   "principle": "the board should not require any manual updates on it",
+   "form": "Face facts derive from the data at render. A fact a person must retype is a defect, not a workflow.",
+   "adopted": "2026-10-25",
+   "by": "Andy"
+  }
+ ],
+ "scope_ladder": {
+  "order": [
+   "draft",
+   "code",
+   "demo",
+   "live",
+   "observed"
+  ],
+  "floor": "reported",
+  "note": "The ladder as ordered data, weakest to strongest; 'reported' is the floor beneath it, never a scope."
+ },
+ "dimension_sets": {
+  "steps": [
+   "assembled",
+   "walks",
+   "counterpart"
+  ],
+  "parts": [
+   "exists",
+   "wired"
+  ],
+  "rows": [
+   "built",
+   "runs",
+   "counterpart"
+  ],
+  "milestones": [
+   "verified"
+  ]
+ },
+ "leg_bars": {
+  "built": "code",
+  "runs": "live",
+  "counterpart": "code",
+  "assembled": "code",
+  "walks": "demo",
+  "exists": "draft",
+  "wired": "code",
+  "verified": "demo"
+ },
+ "_stamp": {
+  "derived_from": "moopgit/quotajobs-workspace board/register.json",
+  "register_commit": "1f469703",
+  "register_snapshot": "2026-10-27 ET (register 2.6 · 38 components · 10 parts · 28 history entries)",
+  "sides_asof": {
+   "andy": "2026-10-26",
+   "tony": "2026-10-24"
+  },
+  "derived_at": "2026-10-27 07:02 EDT",
+  "derivation": "Verbatim copy of the register, less the history log (history, history_notes, history_definition — withheld until the History view ships; the register is ahead of the extract there by standing decision) and less any internal field (rulings and one-side positions not yet jointly confirmed), plus a public-fit scrub (ruled 2026-10-26): call summaries withheld, the payments tile's detail generalized, the price block replaced by its partners-facing badge (the badge's status and note are the public form of the partners' shared position, not the register's internal state), org and repo paths replaced whole as values, and the partner's organization, company, and provider names generalized — the board's content is partner-private in substance and public only in the classes that fit a public page, plus this stamp. The snapshot line is generated by the derivation from the register's own counts. Selection: the component tree and the standing principles cross whole; tiles, gaps, and rows carry their component and node keys and, from schema 2.5, their guide fields (blocked_by and couples_with edges, kind_of_work, watch_tags, and the decision-time how). The board renders this data and nothing else."
+ }
+}
