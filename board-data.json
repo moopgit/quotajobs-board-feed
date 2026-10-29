@@ -18,8 +18,17 @@
    "class": "checked",
    "id": "m-teaser-wired",
    "label": "Teaser flow wired in the real app",
-   "reached": false,
-   "checks": []
+   "reached": true,
+   "checks": [
+    {
+     "leg": "runs",
+     "scope": "live",
+     "by": "QuotaJobs lane — deployed-system verification",
+     "when": "2026-10-29",
+     "note": "Teaser flow wired in the real app and exercised signed-in on the deployed build."
+    }
+   ],
+   "when": "2026-10-29"
   },
   {
    "class": "checked",
@@ -75,13 +84,13 @@
  "register": "quotajobs-board",
  "schema_version": "2.6",
  "sides_asof": {
-  "andy": "2026-10-26",
+  "andy": "2026-10-29",
   "tony": "2026-10-24"
  },
  "snapshot": {
   "label": "Snapshot — not live",
   "live": false,
-  "taken": "2026-10-27 ET (register 2.6 · 38 components · 10 parts · 29 history entries)"
+  "taken": "2026-10-29 ET (register 2.6 · 38 components · 10 parts · 31 history entries)"
  },
  "tiles": [
   {
@@ -110,7 +119,7 @@
     {
      "id": "land-signup--landing",
      "evidence": "verified",
-     "last_checked": "2026-10-23",
+     "last_checked": "2026-10-29",
      "state": "done",
      "text": "Landing and account screens run in the demo app",
      "component": "login--sign-up",
@@ -121,6 +130,13 @@
        "by": "Andy's demo run",
        "when": "2026-10-23",
        "note": "Checked in the demo app"
+      },
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "The landing and its funnel exercised signed-in on the deployed app."
       }
      ],
      "na_legs": [],
@@ -169,7 +185,7 @@
     {
      "id": "upload-resume--parse",
      "evidence": "verified",
-     "last_checked": "2026-10-19",
+     "last_checked": "2026-10-29",
      "state": "done",
      "text": "The engine reads PDF and DOCX resumes (the /parse contract)",
      "component": "resume-upload--reading",
@@ -180,6 +196,13 @@
        "by": "Code Review verification of Slice 2",
        "when": "2026-10-19",
        "note": "Checked at code level; the live check is pending until first deploy"
+      },
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "Parsing runs on the engine's parser (one parsing path), verified on Andy's real resume shape end to end."
       }
      ],
      "na_legs": [],
@@ -188,20 +211,23 @@
     {
      "id": "upload-resume--wiring",
      "evidence": "verified",
-     "last_checked": "2026-10-24",
+     "last_checked": "2026-10-29",
      "note": "Slice 3 build started 2026-10-24 with Andy's approval. Settled when an uploaded resume reaches the engine in the wired app (this step's done test).",
-     "state": "building",
+     "state": "done",
      "text": "The app sends the upload to the engine (the wiring job)",
      "group": "slice-3-wiring",
-     "claim": {
-      "builder": "Andy",
-      "line": "Wiring the app's upload to the engine (Slice 3).",
-      "claimed_on": "2026-10-24"
-     },
      "component": "resume-upload--uploading",
-     "checks": [],
+     "checks": [
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "Resume analysis runs on the engine parser in the deployed app. The parse failure Andy hit on his own resume is closed end to end through a signed-in session, and the parse also lands as the document's structured vault record."
+      }
+     ],
      "na_legs": [],
-     "last_changed": "2026-10-24"
+     "last_changed": "2026-10-29"
     }
    ],
    "step": 2,
@@ -252,7 +278,7 @@
     {
      "id": "teaser--engine-score",
      "evidence": "verified",
-     "last_checked": "2026-10-19",
+     "last_checked": "2026-10-29",
      "state": "done",
      "text": "The engine scores a resume against a job and returns the teaser",
      "component": "scoring--teaser",
@@ -263,6 +289,13 @@
        "by": "Code Review verification of Slice 2",
        "when": "2026-10-19",
        "note": "Checked at code level; the live check is pending until first deploy"
+      },
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "Deployed scoring proof: the sales-development manager posting that scored 90 against Andy's resume now returns 65 with its reason named first."
       }
      ],
      "na_legs": [],
@@ -271,24 +304,27 @@
     {
      "id": "teaser--wiring",
      "evidence": "verified",
-     "last_checked": "2026-10-24",
+     "last_checked": "2026-10-29",
      "note": "Same wiring job as the upload step.",
-     "state": "building",
+     "state": "done",
      "text": "The app wiring for the teaser screen",
      "group": "slice-3-wiring",
-     "claim": {
-      "builder": "Andy",
-      "line": "Wiring the teaser screen in the app (Slice 3).",
-      "claimed_on": "2026-10-24"
-     },
      "component": "scoring--teaser",
      "blocked_by": [
       "G-3"
      ],
      "kind_of_work": "build",
-     "checks": [],
+     "checks": [
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "The teaser flow runs wired in the deployed app, exercised signed-in — including starting from the saved vault record instead of a fresh upload."
+      }
+     ],
      "na_legs": [],
-     "last_changed": "2026-10-24"
+     "last_changed": "2026-10-29"
     }
    ],
    "step": 3,
@@ -336,7 +372,7 @@
     {
      "id": "full-breakdown--engine",
      "evidence": "verified",
-     "last_checked": "2026-10-19",
+     "last_checked": "2026-10-29",
      "state": "done",
      "text": "The engine returns the full breakdown and counts pairs",
      "component": "scoring--full-breakdown",
@@ -347,6 +383,13 @@
        "by": "Code Review verification of Slice 2",
        "when": "2026-10-19",
        "note": "Checked at code level; live database behavior NOT VERIFIED until first deploy"
+      },
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "Full breakdowns returned and pair-counted on the deployed engine through the deploy-night verification and since."
       }
      ],
      "na_legs": [],
@@ -355,7 +398,7 @@
     {
      "id": "full-breakdown--app-metering",
      "evidence": "verified",
-     "last_checked": "2026-10-19",
+     "last_checked": "2026-10-29",
      "state": "done",
      "text": "The app counts usage for the allowance",
      "component": "scoring--full-breakdown",
@@ -366,6 +409,13 @@
        "by": "Code Review final re-verification of Slice 1",
        "when": "2026-10-19",
        "note": "Checked at code level"
+      },
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "Since the two-meters fix (2026-10-28), one entitlement truth serves both apps of the product; the generation allowance is separately named from the pair meter."
       }
      ],
      "na_legs": [],
@@ -374,8 +424,8 @@
     {
      "id": "full-breakdown--free-scans",
      "evidence": "verified",
-     "last_checked": "2026-10-24",
-     "note": "Andy's side's design number is 1 free full breakdown (Oct 11 design); the count itself is part of the open offer-shape clarification at step 5.",
+     "last_checked": "2026-10-29",
+     "note": "The mechanism is built and verified live. What keeps this row at building is the joint confirmation of the free count itself — the open item at G-1 — not unfinished wiring.",
      "state": "building",
      "text": "The app gives the free scans in Andy's side's design",
      "group": "slice-3-wiring",
@@ -389,27 +439,38 @@
       "G-1"
      ],
      "kind_of_work": "build",
-     "checks": [],
+     "checks": [
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "The free mechanism is verified live: one free full breakdown per user-and-job pair, same-pair rescans free, teasers free, the second pair refused."
+      }
+     ],
      "na_legs": [],
      "last_changed": "2026-10-24"
     },
     {
      "id": "full-breakdown--wiring",
      "evidence": "verified",
-     "last_checked": "2026-10-24",
+     "last_checked": "2026-10-28",
      "note": "Same wiring job.",
-     "state": "building",
+     "state": "done",
      "text": "The last wiring piece between the app and the engine",
      "group": "slice-3-wiring",
-     "claim": {
-      "builder": "Andy",
-      "line": "The last wiring piece between the app and the engine (Slice 3).",
-      "claimed_on": "2026-10-24"
-     },
      "component": "scoring--full-breakdown",
-     "checks": [],
+     "checks": [
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-28",
+       "note": "Deploy-night verification by a fresh anonymous session against the live database: teaser, one free full breakdown, same-pair rescan free, second pair refused."
+      }
+     ],
      "na_legs": [],
-     "last_changed": "2026-10-24"
+     "last_changed": "2026-10-28"
     }
    ],
    "step": 4,
@@ -477,8 +538,8 @@
     {
      "id": "paywall-moment--wiring",
      "evidence": "verified",
-     "last_checked": "2026-10-24",
-     "note": "Rides the wiring job.",
+     "last_checked": "2026-10-29",
+     "note": "The paywall moment runs in the real flow on the ruled figure. The price's joint state stays open at G-2 (documents and the partners' call).",
      "state": "building",
      "text": "The paywall moment in the real wired flow",
      "group": "slice-3-wiring",
@@ -492,7 +553,15 @@
       "G-2"
      ],
      "kind_of_work": "build",
-     "checks": [],
+     "checks": [
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "At the limit, the deployed flow presents the paywall naming the ruled price and what it buys. Checkout is honestly disabled — no payment can be taken — until the payment account exists; that remainder is the subscribe & pay rows' work."
+      }
+     ],
      "na_legs": [],
      "last_changed": "2026-10-24"
     }
@@ -613,8 +682,8 @@
    "rows": [
     {
      "id": "account-stuff--account",
-     "evidence": "read",
-     "last_checked": "2026-10-23",
+     "evidence": "verified",
+     "last_checked": "2026-10-29",
      "state": "done",
      "text": "The account area (saved jobs, applications, documents) exists in the app",
      "component": "accounts--saved-jobs",
@@ -625,6 +694,13 @@
        "by": "Read from Andy's build copy",
        "when": "2026-10-23",
        "note": "Read from Andy's build copy; not run-checked"
+      },
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "Account surfaces exercised green against the live database — dashboard, applications, jobs, documents — most recently across the October 29 fix-batch sessions."
       }
      ],
      "na_legs": [],
@@ -699,7 +775,7 @@
     {
      "id": "engine--api",
      "evidence": "verified",
-     "last_checked": "2026-10-19",
+     "last_checked": "2026-10-29",
      "state": "done",
      "text": "Engine API v1 built (parse, score, teaser vs full, quota)",
      "component": "scoring--engine",
@@ -710,6 +786,13 @@
        "by": "Code Review — PASS, clean at code level",
        "when": "2026-10-19",
        "note": "Checked at code level — never yet run on a host; that check closes at deploy"
+      },
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-29",
+       "note": "API v1 live; ingestion endpoints added since the last check (the board-poll cycle runs daily on the deployed engine)."
       }
      ],
      "na_legs": [],
@@ -849,14 +932,22 @@
     {
      "id": "going-live--first-deploy",
      "evidence": "verified",
-     "last_checked": "2026-10-24",
-     "note": "The deploy go is Andy's and has not been given",
-     "state": "not_started",
+     "last_checked": "2026-10-28",
+     "note": "Deployed 2026-10-28 on Andy's own accounts (app, engine, database), live behind an access gate. Opening it to the public is a separate later decision.",
+     "state": "done",
      "text": "First deploy of app and engine",
      "component": "getting-it-live--hosting",
-     "checks": [],
+     "checks": [
+      {
+       "leg": "runs",
+       "scope": "live",
+       "by": "QuotaJobs lane — deployed-system verification",
+       "when": "2026-10-28",
+       "note": "App and engine deployed to production addresses on Andy's own accounts and verified end to end the same night."
+      }
+     ],
      "na_legs": [],
-     "last_changed": "2026-10-24"
+     "last_changed": "2026-10-28"
     }
    ],
    "under": "The whole journey",
@@ -1445,13 +1536,13 @@
  },
  "_stamp": {
   "derived_from": "moopgit/quotajobs-workspace board/register.json",
-  "register_commit": "13547473f810b0fd0ad46a0825e3bad993a0dfc5",
-  "register_snapshot": "2026-10-27 ET (register 2.6 · 38 components · 10 parts · 29 history entries)",
+  "register_commit": "33734e26",
+  "register_snapshot": "2026-10-29 ET (register 2.6 · 38 components · 10 parts · 31 history entries)",
   "sides_asof": {
-   "andy": "2026-10-26",
+   "andy": "2026-10-29",
    "tony": "2026-10-24"
   },
-  "derived_at": "2026-10-27 16:19 EDT",
+  "derived_at": "2026-10-29 01:56 EDT",
   "derivation": "Verbatim copy of the register, less the history log (history, history_notes, history_definition — withheld until the History view ships; the register is ahead of the extract there by standing decision) and less any internal field (rulings and one-side positions not yet jointly confirmed), plus a public-fit scrub (ruled 2026-10-26): call summaries withheld, the payments tile's detail generalized, the price block replaced by its partners-facing badge (the badge's status and note are the public form of the partners' shared position, not the register's internal state), org and repo paths replaced whole as values, and the partner's organization, company, and provider names generalized — the board's content is partner-private in substance and public only in the classes that fit a public page, plus this stamp. The snapshot line is generated by the derivation from the register's own counts. Selection: the component tree and the standing principles cross whole; tiles, gaps, and rows carry their component and node keys and, from schema 2.5, their guide fields (blocked_by and couples_with edges, kind_of_work, watch_tags, and the decision-time how). The board renders this data and nothing else."
  }
 }
