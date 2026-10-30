@@ -28,14 +28,23 @@
      "note": "Teaser flow wired in the real app and exercised signed-in on the deployed build."
     }
    ],
-   "when": "2026-10-29"
+   "when": "2026-10-28"
   },
   {
    "class": "checked",
    "id": "m-live",
    "label": "Live at a real address",
-   "reached": false,
-   "checks": []
+   "reached": true,
+   "checks": [
+    {
+     "leg": "verified",
+     "scope": "live",
+     "by": "QuotaJobs lane — deployed-system verification",
+     "when": "2026-10-28",
+     "note": "Live on Andy's own accounts; six-step verification passed (lane deploy record)."
+    }
+   ],
+   "when": "2026-10-28"
   },
   {
    "class": "checked",
@@ -78,19 +87,19 @@
  ],
  "note": "The board's single data source. Rows carry states; TILE states are never stored — they derive at render by the pinned rule: a tile shows its most-blocking open row (to-clarify flag first, then waiting, then being built, then not reported, then not started; a tile whose rows are all unreported renders Not reported); a tile is done-and-checked only when every row is done. Milestones are rows of a milestone kind, in two classes: checked work, and observed world facts (source named). Vocabulary identical across prototype and shared versions; migration is a re-home of this file, not a re-entry of states. Schema v2 adds per-item watch targets and watch health; proposed changes live in board/proposals.json, never inside item states, and land only on a partner's tap. Standing requirement (Andy, 2026-10-24): the board surfaces things not documented yet — said on a call but never became an item · built but never claimed or recorded · decided but never written down — as proposed entries, which become items only on a partner's confirmation.",
  "price": {
-  "status": "to clarify",
-  "note": "The subscription price is a partners' decision, still to be confirmed together. No figure stands here."
+  "status": "ruled",
+  "note": "Ruled: $20/month — the partners' price, in force at launch (ruled 2026-10-28)."
  },
  "register": "quotajobs-board",
  "schema_version": "2.6",
  "sides_asof": {
-  "andy": "2026-10-29",
+  "andy": "2026-10-30",
   "tony": "2026-10-24"
  },
  "snapshot": {
   "label": "Snapshot — not live",
   "live": false,
-  "taken": "2026-10-29 ET (register 2.6 · 38 components · 10 parts · 31 history entries)"
+  "taken": "2026-10-30 ET (register 2.6 extract of 2026-10-29 + truth-pass corrections of 2026-10-30)"
  },
  "tiles": [
   {
@@ -141,6 +150,26 @@
      ],
      "na_legs": [],
      "last_changed": "2026-10-23"
+    },
+    {
+     "id": "land-signup--sign-in-live",
+     "component": "login--sign-up",
+     "text": "Sign-in runs in the live app — test accounts and Wave 1 testers are through it",
+     "state": "done",
+     "evidence": "verified",
+     "note": "",
+     "last_checked": "2026-10-30",
+     "last_changed": "2026-10-30",
+     "na_legs": [],
+     "checks": [
+      {
+       "leg": "verified",
+       "scope": "live",
+       "by": "Moonshot Lab RT-05 pass (first-person, live app)",
+       "when": "2026-10-30",
+       "note": "Checked live with test accounts; a stranger's cold sign-up was not exercised by this pass."
+      }
+     ]
     }
    ],
    "step": 1,
@@ -211,9 +240,9 @@
     {
      "id": "upload-resume--wiring",
      "evidence": "verified",
-     "last_checked": "2026-10-29",
-     "note": "Slice 3 build started 2026-10-24 with Andy's approval. Settled when an uploaded resume reaches the engine in the wired app (this step's done test).",
-     "state": "done",
+     "last_checked": "2026-10-30",
+     "note": "Slice 3 build started 2026-10-24 with Andy's approval; this wiring is the job being built. Settled when an uploaded resume reaches the engine in the wired app (this step's done test). Truth pass 2026-10-30: in the RT-05 live run the onboarding resume parse failed and was skipped — uploads reach the app, the parse path is not yet proven end to end. Row stays building; the failure rides the app's feedback pipeline.",
+     "state": "building",
      "text": "The app sends the upload to the engine (the wiring job)",
      "group": "slice-3-wiring",
      "component": "resume-upload--uploading",
@@ -454,9 +483,9 @@
     {
      "id": "full-breakdown--wiring",
      "evidence": "verified",
-     "last_checked": "2026-10-28",
-     "note": "Same wiring job.",
-     "state": "done",
+     "last_checked": "2026-10-30",
+     "note": "Same wiring job — Slice 3, started 2026-10-24.",
+     "state": "building",
      "text": "The last wiring piece between the app and the engine",
      "group": "slice-3-wiring",
      "component": "scoring--full-breakdown",
@@ -729,6 +758,26 @@
       "name": "the partner's reports",
       "event": "partners' calls"
      }
+    },
+    {
+     "id": "account-stuff--boundary-probe",
+     "component": "accounts--saved-jobs",
+     "text": "Account state stays inside its own account in the live app (deliberate boundary probe: no cross-account rendering in either direction; session-less URL guesses redirect to sign-in)",
+     "state": "done",
+     "evidence": "verified",
+     "note": "",
+     "last_checked": "2026-10-30",
+     "last_changed": "2026-10-30",
+     "na_legs": [],
+     "checks": [
+      {
+       "leg": "verified",
+       "scope": "live",
+       "by": "Moonshot Lab RT-05 pass (first-person, live app)",
+       "when": "2026-10-30",
+       "note": "Deliberate boundary probe: no cross-account rendering in either direction; session-less URL guesses redirect to sign-in. Checked with test accounts."
+      }
+     ]
     }
    ],
    "step": 7,
@@ -932,9 +981,9 @@
     {
      "id": "going-live--first-deploy",
      "evidence": "verified",
-     "last_checked": "2026-10-28",
-     "note": "Deployed 2026-10-28 on Andy's own accounts (app, engine, database), live behind an access gate. Opening it to the public is a separate later decision.",
-     "state": "done",
+     "last_checked": "2026-10-30",
+     "note": "The deploy go was given and the app is LIVE on Andy's accounts since 2026-10-28 (six-step verification, lane record). The row stays open on its engine half: no filed record states the engine's production version, so this pass does not close it.",
+     "state": "building",
      "text": "First deploy of app and engine",
      "component": "getting-it-live--hosting",
      "checks": [
@@ -1539,10 +1588,10 @@
   "register_commit": "33734e26",
   "register_snapshot": "2026-10-29 ET (register 2.6 · 38 components · 10 parts · 31 history entries)",
   "sides_asof": {
-   "andy": "2026-10-29",
+   "andy": "2026-10-30",
    "tony": "2026-10-24"
   },
-  "derived_at": "2026-10-29 01:56 EDT",
-  "derivation": "Verbatim copy of the register, less the history log (history, history_notes, history_definition — withheld until the History view ships; the register is ahead of the extract there by standing decision) and less any internal field (rulings and one-side positions not yet jointly confirmed), plus a public-fit scrub (ruled 2026-10-26): call summaries withheld, the payments tile's detail generalized, the price block replaced by its partners-facing badge (the badge's status and note are the public form of the partners' shared position, not the register's internal state), org and repo paths replaced whole as values, and the partner's organization, company, and provider names generalized — the board's content is partner-private in substance and public only in the classes that fit a public page, plus this stamp. The snapshot line is generated by the derivation from the register's own counts. Selection: the component tree and the standing principles cross whole; tiles, gaps, and rows carry their component and node keys and, from schema 2.5, their guide fields (blocked_by and couples_with edges, kind_of_work, watch_tags, and the decision-time how). The board renders this data and nothing else."
+  "derived_at": "2026-10-30 (truth-pass merge, Master Build Board)",
+  "derivation": "Verbatim copy of the register, less the history log (history, history_notes, history_definition — withheld until the History view ships; the register is ahead of the extract there by standing decision) and less any internal field (rulings and one-side positions not yet jointly confirmed), plus a public-fit scrub (ruled 2026-10-26): call summaries withheld, the payments tile's detail generalized, the price block replaced by its partners-facing badge (the badge's status and note are the public form of the partners' shared position, not the register's internal state), org and repo paths replaced whole as values, and the partner's organization, company, and provider names generalized — the board's content is partner-private in substance and public only in the classes that fit a public page, plus this stamp. The snapshot line is generated by the derivation from the register's own counts. Selection: the component tree and the standing principles cross whole; tiles, gaps, and rows carry their component and node keys and, from schema 2.5, their guide fields (blocked_by and couples_with edges, kind_of_work, watch_tags, and the decision-time how). The board renders this data and nothing else. 2026-10-30 merge: the truth-pass corrections (Moonshot Lab, the governor's GO, against the 2026-10-30 record) landed at content level in this derivation's shape — m-live reached (2026-10-28), the first-deploy and two wiring rows re-opened at building on the truth pass's evidence reading, the price badge carrying the ruled figure, and two verified rows added (live sign-in · account boundary probe). Call summaries remain withheld, provider and org naming remains generalized, and no evidence grade was lowered where this shape's checks name the checker."
  }
 }
