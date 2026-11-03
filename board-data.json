@@ -90,7 +90,7 @@
  "snapshot": {
   "label": "Snapshot — not live",
   "live": false,
-  "taken": "2026-11-03 ET (register 2.6 · 38 components · 10 parts · 46 history entries)"
+  "taken": "2026-11-03 ET (register 2.6 · 38 components · 10 parts · 47 history entries)"
  },
  "tiles": [
   {
@@ -436,11 +436,6 @@
      "state": "building",
      "text": "The app gives the free scans in Andy's side's design",
      "group": "slice-3-wiring",
-     "claim": {
-      "builder": "Andy",
-      "line": "Building the app side of the free-scan count — dropping the placeholder of 3 (Slice 3).",
-      "claimed_on": "2026-10-24"
-     },
      "component": "scoring--free-scans",
      "blocked_by": [
       "G-1"
@@ -550,11 +545,6 @@
      "state": "building",
      "text": "The paywall moment in the real wired flow",
      "group": "slice-3-wiring",
-     "claim": {
-      "builder": "Andy",
-      "line": "Wiring the paywall moment into the real flow (Slice 3).",
-      "claimed_on": "2026-10-24"
-     },
      "component": "charging--paywall",
      "blocked_by": [
       "G-2"
@@ -1857,6 +1847,13 @@
    "subject": "register",
    "kind": "record",
    "text": "BOARD v1, ORDER 2 (PROPOSALS + NOTES) LANDED (2026-11-03): the board now carries the partners' proposals and item notes as live machinery. Proposals live in their own data home beside this register and print on the board at their derived state (proposed, adopted, declined, with declines and their reasons shown); notes attach to items and print in the item's detail place. A checker guards every landing of either file, and the write repo's pull path stands ready: it has run once against the seeded repo and consumed zero writes, the seed's examples excluded by rule. The live sets are born empty, honestly: the first real proposal arrives through use. The same landing retired four components that no view mounted; the detail surfaces that remain carry the board's facts."
+  },
+  {
+   "seq": 47,
+   "at": "2026-11-03",
+   "subject": "register",
+   "kind": "record",
+   "text": "BOARD ORDER 3a (PICKUPS AS ACTS) LANDED (2026-11-03): holding is now acts, not a field. Pickups, releases, and handoffs are entries in their own data home beside this register, and who holds what is derived from those entries wherever it prints — on the item itself in every view, and on the overview's pickup shelf, which lists what is held without counting either side's holdings. Two sides may hold one item (it prints as joined), a handoff passes a holding across, and a release closes only the holder's own holding, with its reason. This register's two claim fields became the first pickup entries, dated from the day they were actually claimed, and the fields themselves are gone: the fold over the entries reproduces the holdings exactly as they stood. A pickup of a proposal is its own act and changes nothing about the proposal's state."
   }
  ],
  "history_notes": [],
@@ -1916,15 +1913,73 @@
  },
  "proposals": [],
  "notes_by_item": {},
+ "pickups_by_target": {
+  "paywall-moment--wiring": {
+   "target": {
+    "kind": "row",
+    "id": "paywall-moment--wiring"
+   },
+   "holders": [
+    {
+     "side": "andy",
+     "since": "2026-10-24",
+     "line": "Wiring the paywall moment into the real flow (Slice 3).",
+     "entry": "4f718aa1-72b9-43bc-a345-b01a2a6a29e2",
+     "via": "pickup"
+    }
+   ],
+   "timeline": [
+    {
+     "id": "4f718aa1-72b9-43bc-a345-b01a2a6a29e2",
+     "kind": "pickup",
+     "side": "andy",
+     "created_at": "2026-10-24",
+     "origin": "andy-side — the Order 3a migration (the register's claim fields, converted at the landing)",
+     "verification": "verified",
+     "line": "Wiring the paywall moment into the real flow (Slice 3)."
+    }
+   ],
+   "state": "held",
+   "handed": false
+  },
+  "full-breakdown--free-scans": {
+   "target": {
+    "kind": "row",
+    "id": "full-breakdown--free-scans"
+   },
+   "holders": [
+    {
+     "side": "andy",
+     "since": "2026-10-24",
+     "line": "Building the app side of the free-scan count — dropping the placeholder of 3 (Slice 3).",
+     "entry": "c2d5692c-1259-4a58-af10-a6176749fc42",
+     "via": "pickup"
+    }
+   ],
+   "timeline": [
+    {
+     "id": "c2d5692c-1259-4a58-af10-a6176749fc42",
+     "kind": "pickup",
+     "side": "andy",
+     "created_at": "2026-10-24",
+     "origin": "andy-side — the Order 3a migration (the register's claim fields, converted at the landing)",
+     "verification": "verified",
+     "line": "Building the app side of the free-scan count — dropping the placeholder of 3 (Slice 3)."
+    }
+   ],
+   "state": "held",
+   "handed": false
+  }
+ },
  "_stamp": {
   "derived_from": "moopgit/quotajobs-workspace board/register.json",
-  "register_commit": "8683b993",
-  "register_snapshot": "2026-11-03 ET (register 2.6 · 38 components · 10 parts · 46 history entries)",
+  "register_commit": "42c23a89",
+  "register_snapshot": "2026-11-03 ET (register 2.6 · 38 components · 10 parts · 47 history entries)",
   "sides_asof": {
    "andy": "2026-11-03",
    "tony": "2026-10-24"
   },
-  "derived_at": "2026-11-03 18:07 EST",
+  "derived_at": "2026-11-03 18:21 EST",
   "derivation": "Verbatim copy of the register, less the history schema definition (history_definition — an internal schema text) and less any internal field (rulings and one-side positions not yet jointly confirmed), plus a public-fit scrub (ruled 2026-10-26): call summaries withheld, the payments tile's detail generalized, the price block replaced by its partners-facing badge (the badge's status and note are the public form of the partners' shared position, not the register's internal state), org and repo paths replaced whole as values, and the partner's organization, company, and provider names generalized — the board's content is partner-private in substance and public only in the classes that fit a public page, plus this stamp. The snapshot line is generated by the derivation from the register's own counts. Selection: the component tree and the standing principles cross whole; tiles, gaps, and rows carry their component and node keys and, from schema 2.5, their guide fields (blocked_by and couples_with edges, kind_of_work, watch_tags, and the decision-time how). The board renders this data and nothing else. Order 2 (2026-11-03): the extract also carries the partners' proposals folded to their derived state and the discussion notes grouped by item, provenance reduced to origin and its derived verification status."
  }
 }
