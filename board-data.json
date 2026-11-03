@@ -90,7 +90,7 @@
  "snapshot": {
   "label": "Snapshot — not live",
   "live": false,
-  "taken": "2026-11-03 ET (register 2.6 · 38 components · 10 parts · 41 history entries)"
+  "taken": "2026-11-03 ET (register 2.6 · 38 components · 10 parts · 43 history entries)"
  },
  "tiles": [
   {
@@ -1507,6 +1507,338 @@
    "birth": "held"
   }
  },
+ "history": [
+  {
+   "seq": 1,
+   "at": "2026-10-07",
+   "subject": "register",
+   "kind": "decision",
+   "text": "Brand set locked (B1-B6): Fraunces + Inter, emerald + clay; phone verdict-first, numbers-first",
+   "by": "Andy"
+  },
+  {
+   "seq": 2,
+   "at": "2026-10-12",
+   "subject": "paywall-moment",
+   "kind": "decision",
+   "text": "Paywall signal: 200 with scans_remaining; 402 quota_exceeded at the limit; pre-filter rejections return 200 with score 0",
+   "by": "Andy"
+  },
+  {
+   "seq": 3,
+   "at": "2026-10-13",
+   "subject": "register",
+   "kind": "decision",
+   "text": "Partnership working terms signed: the API contract is maintained jointly; implementation behind the interface is each side's own, with notice on changes the other side will feel",
+   "by": "Andy"
+  },
+  {
+   "seq": 4,
+   "at": "2026-10-18",
+   "subject": "full-breakdown--app-metering",
+   "kind": "build-act",
+   "text": "Slice 1 build record (quotajobs-build; app metering closed at code level)",
+   "by": "Andy"
+  },
+  {
+   "seq": 5,
+   "at": "2026-10-19",
+   "subject": "engine--api",
+   "kind": "build-act",
+   "text": "PR #2 on Tony's repo (open, awaiting his review and merge)",
+   "by": "Andy"
+  },
+  {
+   "seq": 6,
+   "at": "2026-10-19",
+   "subject": "engine--api",
+   "kind": "build-act",
+   "text": "Slice 2 build record (branch slice-2-engine-api; Engine API v1 verified in code; deploy is a separate, later act)",
+   "by": "Andy"
+  },
+  {
+   "seq": 7,
+   "at": "2026-10-23",
+   "subject": "register",
+   "kind": "decision",
+   "text": "Adopt a shared build repo as the partners' later product home (app + contract + product docs)",
+   "by": "Andy"
+  },
+  {
+   "seq": 8,
+   "at": "2026-10-23",
+   "subject": "register",
+   "kind": "decision",
+   "text": "The shared-repo setup is cancelled the same evening; the partners keep building in their existing repos and compare notes as they go",
+   "by": "Andy",
+   "supersedes": 7
+  },
+  {
+   "seq": 9,
+   "at": "2026-10-23",
+   "subject": "m-demo",
+   "kind": "build-act",
+   "text": "Register milestone m-demo, reached 2026-10-23 (the AI Studio demo runs the journey end to end)",
+   "by": "Andy"
+  },
+  {
+   "seq": 10,
+   "at": "2026-10-24",
+   "subject": "register",
+   "kind": "decision",
+   "text": "Run payments under the partner's company until a threshold is banked, then form a joint entity together.",
+   "by": "joint"
+  },
+  {
+   "seq": 11,
+   "at": "2026-10-24",
+   "subject": "upload-resume--parse",
+   "kind": "decision",
+   "text": "One parsing path: Andy's ATS extractor is the resume-reading path",
+   "by": "joint"
+  },
+  {
+   "seq": 12,
+   "at": "2026-10-24",
+   "subject": "full-breakdown--app-metering",
+   "kind": "decision",
+   "text": "One meter, at the engine: 1 free full breakdown per pair for the build",
+   "by": "Andy"
+  },
+  {
+   "seq": 13,
+   "at": "2026-10-24",
+   "subject": "land-signup",
+   "kind": "decision",
+   "text": "Email upfront, before the upload (named reversible)",
+   "by": "Andy"
+  },
+  {
+   "seq": 14,
+   "at": "2026-10-24",
+   "subject": "register",
+   "kind": "build-act",
+   "text": "Board execution final report, 2026-10-24 (the partner board live at its published link)",
+   "by": "Andy"
+  },
+  {
+   "seq": 15,
+   "at": "2026-10-25",
+   "subject": "register",
+   "kind": "decision",
+   "text": "Feature Map v3 adopted as the canonical feature picture (its text confirmed the same day)",
+   "by": "Andy"
+  },
+  {
+   "seq": 16,
+   "at": "2026-10-25",
+   "subject": "register",
+   "kind": "decision",
+   "text": "The register gains this append-only event log; DECISIONS and BUILDS are derived views over it, never stored (Call 1, second look, consensus stamped final 2026-10-25)",
+   "by": "Andy"
+  },
+  {
+   "seq": 17,
+   "at": "2026-10-25",
+   "subject": "register",
+   "kind": "decision",
+   "text": "The component tree adopted view-first and landed here as schema 2.4: a node map (kinds, parents, birth states) over the unchanged rows, tiles keyed to nodes, the journey kept as one view over the tree. The no-manual-updates principle is inscribed in the register in the same act, and the wiring group's label is cured of its internal build label.",
+   "by": "Andy"
+  },
+  {
+   "seq": 18,
+   "at": "2026-10-25",
+   "subject": "account-stuff",
+   "kind": "decision",
+   "text": "(A) — the tile stays whole. F-15's component assignment resolves as Accounts & saved jobs (component level).",
+   "by": "Andy"
+  },
+  {
+   "seq": 19,
+   "at": "2026-10-25",
+   "subject": "register",
+   "kind": "build-act",
+   "text": "Adopted into the register. The consistency halt gains clause T6: every row's component key resolves to a defined node.",
+   "by": "QuotaJobs lane (build: the delta build, Design's Studio session)"
+  },
+  {
+   "seq": 20,
+   "at": "2026-10-25",
+   "subject": "register",
+   "kind": "build-act",
+   "text": "Fields `question` and `whose_move` added to all five gap records. Code deletes its per-gap overrides and derives the strip from these fields.",
+   "by": "Andy's side (the approved refinement plan, Item 0)"
+  },
+  {
+   "seq": 21,
+   "at": "2026-10-26",
+   "subject": "G-2 / D-14",
+   "kind": "decision",
+   "text": "Price set provisionally, pending the partners' reviews; the figure is carried in the partners' record and prints on no public surface.",
+   "by": "Andy (ruling, 2026-10-26)"
+  },
+  {
+   "seq": 22,
+   "at": "2026-10-26",
+   "subject": "G-1",
+   "kind": "record",
+   "text": "G-1 gains an internal record of the Andy-side decision at full specificity (per-pair free breakdown; same-pair rescans free; teasers uncounted; one meter). Joint confirmation pending the partners' call. No public field moves — the public record already carries the design at to-clarify strength.",
+   "by": "QuotaJobs lane (the queued register consequence of the 2026-10-25 decision, carried on this touch)"
+  },
+  {
+   "seq": 23,
+   "at": "2026-10-26",
+   "subject": "G-2 / D-14",
+   "kind": "decision",
+   "text": "Price RULED, with all five conditions attached and binding; the figure prints per the launch sequence, not before.",
+   "by": "Andy (confirmation, 2026-10-26)"
+  },
+  {
+   "seq": 24,
+   "at": "2026-10-26",
+   "subject": "Schema 2.5 — the guide fields land",
+   "kind": "build",
+   "text": "check_register.py CLEAR vs the seq-23 register (H5 prefix holds; E5 flags name 6 open rows rendering no act line yet) · three negative fixtures halt (E1 dangling · E2 cycle · E3 settled blocker) · test derivation carries the leaves, internal still stripped.",
+   "by": "QuotaJobs lane (board-as-guide build, Decision 5; form @ board-guide-REGISTER-FORM-2026-10-26)"
+  },
+  {
+   "seq": 25,
+   "at": "2026-10-26",
+   "subject": "Public data file — exposure found; full cure ruled",
+   "kind": "decision",
+   "text": "Outside review, 2026-10-26 (verified against the live file and both rule lines).",
+   "by": "Andy (full cure ruled 2026-10-26, on the verified return)"
+  },
+  {
+   "seq": 26,
+   "at": "2026-10-26",
+   "subject": "Refinement landing — schema 2.6 (claim-strength) + the guide fields + the G-3 proof edit",
+   "kind": "decision",
+   "text": "The claim-strength adoption + the refinement firing, both 2026-10-26; the guide round's landing record for the deviation and the proof's pre-registration.",
+   "by": "Andy (the refinement round + the claim-strength adoption, 2026-10-26)"
+  },
+  {
+   "seq": 27,
+   "at": "2026-10-26",
+   "subject": "Correction — unreached milestones carry no checks",
+   "kind": "correction",
+   "text": "Register census at de986005: 7 of 8 milestones reached=false with generated checks; Build 2 packet specimen m-teaser-wired computed from them.",
+   "by": "The QuotaJobs lane (supply), on its own data-side read of the Build 2 packet"
+  },
+  {
+   "seq": 28,
+   "at": "2026-10-27",
+   "subject": null,
+   "kind": "correction",
+   "text": "Row id renamed to generalize the payment provider's name in the public data file (ids cross as keys; the display text was already generalized). Found by the T1 public watch's first full run (outside reviews, 2026-10-27)."
+  },
+  {
+   "seq": 29,
+   "at": "2026-10-27",
+   "subject": null,
+   "kind": "disposition",
+   "text": "D-14 communication venue ruled: the price tell moves from a text (not sent) to the next partners' call agenda."
+  },
+  {
+   "seq": 30,
+   "at": "2026-10-29",
+   "subject": "register",
+   "kind": "build-act",
+   "text": "Board honesty landing: the register refreshed to the deployed reality. Wiring rows for resume upload, the teaser, and the full breakdown move to done on live checks; first deploy moves to done (deployed 2026-10-28 on Andy's own accounts, behind the access gate — m-live stays unreached on purpose, since a gated address is not yet a public one). Free-scans and paywall rows keep building with live-verified evidence: what remains on them is the partners' joint items at G-1 and G-2, not wiring. Tony-side reported rows untouched."
+  },
+  {
+   "seq": 31,
+   "at": "2026-10-29",
+   "subject": "register",
+   "kind": "record",
+   "text": "Coverage note: two product areas built since the register's shape was set have no tile yet — job ingestion (the app pulls postings from company boards into users' feeds) and the Career Vault (documents with editable structured records, now the scoring input). Recorded here so the gap is named; tile coverage is a board-shape decision for the partners, proposed as a follow-up."
+  },
+  {
+   "seq": 32,
+   "at": "2026-11-01",
+   "subject": "product",
+   "kind": "record",
+   "text": "The seven-room redesign (PF-9) landed on the deployed app: Home, Jobs, Tracker, Resume Studio, Documents, Targets & onboarding, and Settings recomposed in one shared grammar, each landing verified on the live deployment. Home's landing covers its composition, its briefing echo's spend behavior, and its briefing's line grammar; how Home's pieces read together on a return visit is a known open gap, named on the lane's record — the redesign is not claimed complete for Home beyond those three."
+  },
+  {
+   "seq": 33,
+   "at": "2026-11-02",
+   "subject": "register",
+   "kind": "record",
+   "text": "Purpose, scope, and currency settled whole — five rulings on Andy's side: the market (quota-carrying sales roles, career transitions included); the promise (the product brings you the roles that align with where you've been and where you're going, and tells you exactly where you stand on each, kept current and true); the coverage standard (completeness inside the corpus, aligned roles per hunter per week, a zero-aligned guard); breadth-first sourcing (an aggregator becomes a primary source once its terms allow); and the closure standard for claims (built, landed, verified live, coherent)."
+  },
+  {
+   "seq": 34,
+   "at": "2026-11-02",
+   "subject": "product",
+   "kind": "record",
+   "text": "GK-6 ruled (Option 1, Andy's side): when a user's record changes, their affected scores re-score in the same act, silently; the count shows where the edit happened and movements surface as events on Home and the role's page. Ruled — not yet built."
+  },
+  {
+   "seq": 35,
+   "at": "2026-11-02",
+   "subject": "product",
+   "kind": "record",
+   "text": "The daily ingest cure: the engine had never held the credential its own schedule required, so every supposedly daily cycle to date had been fired by hand. The credential was placed 2026-11-02; all 49 watched boards re-polled and about 260 stale postings were pruned. The cure's final proof landed the next morning: the first fully unattended cycle ran on schedule (2026-11-03, board stamps read direct from the store)."
+  },
+  {
+   "seq": 36,
+   "at": "2026-11-02",
+   "subject": "product",
+   "kind": "record",
+   "text": "The product's judgment, priced as an asset: naming the scorer, its matching rules, and its claim standards as one versioned 'hunt judgment pack' the engine loads, with a possible later door (MCP) that would let a user's own assistant import their hunt and work against the corpus and the pack. Priced and synthesized 2026-11-02/03 — not ruled, not built. The door awaits Andy's rulings on four points (a new surface class, any price on it, third-party access to a live hunt, and publishing the pack's internals)."
+  },
+  {
+   "seq": 37,
+   "at": "2026-11-03",
+   "subject": "product",
+   "kind": "record",
+   "text": "Two cures stand built and independently graded PASS, merge-ready, NOT yet live: the Home queue's 'New match' label now stands only on pairs that arrived since the last visit (it previously printed on a five-day-old pair beside a NEW counter at zero), and the Jobs page holds its matches frame from first paint so the tracked list never flashes at the top while the feed loads. They land on Andy's release with the next deployment batch."
+  },
+  {
+   "seq": 38,
+   "at": "2026-11-03",
+   "subject": "register",
+   "kind": "record",
+   "text": "Tony Adamson signed up on the live app under his own email today; the owner-class grant standing ready for his arrival fired, and the account and grant were verified in the store under both environment labels (Andy's side's verification, by direct read). Tony's side's reported rows stand at his last report (2026-10-24), unchanged."
+  },
+  {
+   "seq": 39,
+   "at": "2026-11-03",
+   "subject": "design",
+   "kind": "record",
+   "text": "Product mark: a three-glyph set exists in Andy's side's working material, with the third glyph leading there. No glyph is picked; nothing on this board presents one as chosen."
+  },
+  {
+   "seq": 40,
+   "at": "2026-11-03",
+   "subject": "register",
+   "kind": "record",
+   "text": "Board refreshed to the deployed product as of 2026-11-03 (this landing): fresh checks on the landing, account, and engine rows; the redesign, the purpose rulings, GK-6, the ingest cure, the judgment-pack pricing, the two merge-ready cures, Tony's signup, and the mark's state recorded above at the strengths actually checked. The board is updated only — it is not sent; the release to Tony remains Andy's separate call."
+  },
+  {
+   "seq": 41,
+   "at": "2026-11-03",
+   "subject": "register",
+   "kind": "record",
+   "text": "RULING (Andy, 2026-11-03): the October hold on sharing this board is lifted, and the board is ruled the partner board system of record for cross-agent/system collaboration. This corrects, by append, the standing description in seq 40 and in the lane's earlier filings (the board described as held, not sent, release pending): those lines state the position of their dates; from this ruling the board is cleared to be shared with Tony, and its ruled role stands in the register's framing (the note and the standing principles). The act of sending remains Andy's."
+  },
+  {
+   "seq": 42,
+   "at": "2026-11-03",
+   "subject": "register",
+   "kind": "record",
+   "text": "URL RULED (Andy, 2026-11-03): the board stays at its current address; the rename question is closed. The address is the board's canonical link and can travel freely."
+  },
+  {
+   "seq": 43,
+   "at": "2026-11-03",
+   "subject": "register",
+   "kind": "record",
+   "text": "BOARD v1, ORDER 1 (THE FACE) LANDED (2026-11-03): the face re-shaped per Andy's corrected ruling. The board's views are kept, each simplified inside; shared components (ItemRow, DecisionCard, Stamp, FreshnessLabel, HistoryEntryLine) are each fact's one home; the overview is a composition of four routing segments (Needs a decision, Your move, Their move, Changed since you last looked); every number on the face is computed at render, the milestone line reading 2 of 8 from this record; History is wired and What changed derives from the history log, which the feed now carries whole. The build is verified at rendered strength from the board's code repository; the board's published face picks the new code up when the Studio project is next published, which is Andy's act."
+  }
+ ],
+ "history_notes": [],
  "standing_principles": [
   {
    "principle": "the board should not require any manual updates on it",
@@ -1563,13 +1895,13 @@
  },
  "_stamp": {
   "derived_from": "moopgit/quotajobs-workspace board/register.json",
-  "register_commit": "c3a8e2d4",
-  "register_snapshot": "2026-11-03 ET (register 2.6 · 38 components · 10 parts · 41 history entries)",
+  "register_commit": "ce1e6c31",
+  "register_snapshot": "2026-11-03 ET (register 2.6 · 38 components · 10 parts · 43 history entries)",
   "sides_asof": {
    "andy": "2026-11-03",
    "tony": "2026-10-24"
   },
-  "derived_at": "2026-11-03 17:14 EST",
-  "derivation": "Verbatim copy of the register, less the history log (history, history_notes, history_definition — withheld until the History view ships; the register is ahead of the extract there by standing decision) and less any internal field (rulings and one-side positions not yet jointly confirmed), plus a public-fit scrub (ruled 2026-10-26): call summaries withheld, the payments tile's detail generalized, the price block replaced by its partners-facing badge (the badge's status and note are the public form of the partners' shared position, not the register's internal state), org and repo paths replaced whole as values, and the partner's organization, company, and provider names generalized — the board's content is partner-private in substance and public only in the classes that fit a public page, plus this stamp. The snapshot line is generated by the derivation from the register's own counts. Selection: the component tree and the standing principles cross whole; tiles, gaps, and rows carry their component and node keys and, from schema 2.5, their guide fields (blocked_by and couples_with edges, kind_of_work, watch_tags, and the decision-time how). The board renders this data and nothing else."
+  "derived_at": "2026-11-03 17:40 EST",
+  "derivation": "Verbatim copy of the register, less the history schema definition (history_definition — an internal schema text) and less any internal field (rulings and one-side positions not yet jointly confirmed), plus a public-fit scrub (ruled 2026-10-26): call summaries withheld, the payments tile's detail generalized, the price block replaced by its partners-facing badge (the badge's status and note are the public form of the partners' shared position, not the register's internal state), org and repo paths replaced whole as values, and the partner's organization, company, and provider names generalized — the board's content is partner-private in substance and public only in the classes that fit a public page, plus this stamp. The snapshot line is generated by the derivation from the register's own counts. Selection: the component tree and the standing principles cross whole; tiles, gaps, and rows carry their component and node keys and, from schema 2.5, their guide fields (blocked_by and couples_with edges, kind_of_work, watch_tags, and the decision-time how). The board renders this data and nothing else."
  }
 }
