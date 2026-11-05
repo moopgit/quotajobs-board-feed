@@ -90,7 +90,7 @@
  "snapshot": {
   "label": "Snapshot — not live",
   "live": false,
-  "taken": "2026-11-05 ET (register 2.6 · 38 components · 10 parts · 48 history entries)"
+  "taken": "2026-11-05 ET (register 2.6 · 38 components · 10 parts · 49 history entries)"
  },
  "tiles": [
   {
@@ -1504,7 +1504,9 @@
    "subject": "register",
    "kind": "decision",
    "text": "Brand set locked (B1-B6): Fraunces + Inter, emerald + clay; phone verdict-first, numbers-first",
-   "by": "Andy"
+   "by": "Andy",
+   "reopens_when": "Reopens if the product's look is re-ruled — a new brand record supersedes this set.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 2,
@@ -1512,7 +1514,9 @@
    "subject": "paywall-moment",
    "kind": "decision",
    "text": "Paywall signal: 200 with scans_remaining; 402 quota_exceeded at the limit; pre-filter rejections return 200 with score 0",
-   "by": "Andy"
+   "by": "Andy",
+   "reopens_when": "Reopens if the free-allowance contract changes shape — a new decision record amends the signal.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 3,
@@ -1520,7 +1524,9 @@
    "subject": "register",
    "kind": "decision",
    "text": "Partnership working terms signed: the API contract is maintained jointly; implementation behind the interface is each side's own, with notice on changes the other side will feel",
-   "by": "Andy"
+   "by": "Andy",
+   "reopens_when": "Reopens when the partners sign amended working terms.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 4,
@@ -1552,7 +1558,9 @@
    "subject": "register",
    "kind": "decision",
    "text": "Adopt a shared build repo as the partners' later product home (app + contract + product docs)",
-   "by": "Andy"
+   "by": "Andy",
+   "reopens_when": "Closed by reversal: seq 8 cancelled this adoption the same evening. Reopens only if the partners again rule a shared product home.",
+   "reopens_when_source": "recorded-chain"
   },
   {
    "seq": 8,
@@ -1561,7 +1569,9 @@
    "kind": "decision",
    "text": "The shared-repo setup is cancelled the same evening; the partners keep building in their existing repos and compare notes as they go",
    "by": "Andy",
-   "supersedes": 7
+   "supersedes": 7,
+   "reopens_when": "Reopens if the partners rule to consolidate into one repo after all — the compare-notes arrangement stands until then.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 9,
@@ -1577,7 +1587,9 @@
    "subject": "register",
    "kind": "decision",
    "text": "Run payments under the partner's company until a threshold is banked, then form a joint entity together.",
-   "by": "joint"
+   "by": "joint",
+   "reopens_when": "Reopens at its own condition: when the banking threshold in the arrangement is met, the joint entity forms and this arrangement ends.",
+   "reopens_when_source": "recorded"
   },
   {
    "seq": 11,
@@ -1585,7 +1597,9 @@
    "subject": "upload-resume--parse",
    "kind": "decision",
    "text": "One parsing path: Andy's ATS extractor is the resume-reading path",
-   "by": "joint"
+   "by": "joint",
+   "reopens_when": "Reopens if the extractor's path is replaced or a second parsing path is ruled — a partners' call, as this was.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 12,
@@ -1593,7 +1607,9 @@
    "subject": "full-breakdown--app-metering",
    "kind": "decision",
    "text": "One meter, at the engine: 1 free full breakdown per pair for the build",
-   "by": "Andy"
+   "by": "Andy",
+   "reopens_when": "Reopens when the partners settle the joint free-tier shape — this ruling kept the one count while that shape stays open.",
+   "reopens_when_source": "recorded"
   },
   {
    "seq": 13,
@@ -1601,7 +1617,9 @@
    "subject": "land-signup",
    "kind": "decision",
    "text": "Email upfront, before the upload (named reversible)",
-   "by": "Andy"
+   "by": "Andy",
+   "reopens_when": "Named reversible in the ruling itself: reopens if it hurts conversion.",
+   "reopens_when_source": "recorded"
   },
   {
    "seq": 14,
@@ -1617,7 +1635,9 @@
    "subject": "register",
    "kind": "decision",
    "text": "Feature Map v3 adopted as the canonical feature picture (its text confirmed the same day)",
-   "by": "Andy"
+   "by": "Andy",
+   "reopens_when": "Reopens when a successor feature picture is adopted and its text confirmed, as this one was.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 16,
@@ -1625,7 +1645,9 @@
    "subject": "register",
    "kind": "decision",
    "text": "The register gains this append-only event log; DECISIONS and BUILDS are derived views over it, never stored (Call 1, second look, consensus stamped final 2026-10-25)",
-   "by": "Andy"
+   "by": "Andy",
+   "reopens_when": "Reopens only by a register redesign of the same weight — a second-look ruling replacing the derivation rule.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 17,
@@ -1633,7 +1655,9 @@
    "subject": "register",
    "kind": "decision",
    "text": "The component tree adopted view-first and landed here as schema 2.4: a node map (kinds, parents, birth states) over the unchanged rows, tiles keyed to nodes, the journey kept as one view over the tree. The no-manual-updates principle is inscribed in the register in the same act, and the wiring group's label is cured of its internal build label.",
-   "by": "Andy"
+   "by": "Andy",
+   "reopens_when": "Reopens if the plan's organization is re-ruled — a successor schema adopted view-first, as this was.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 18,
@@ -1641,7 +1665,9 @@
    "subject": "account-stuff",
    "kind": "decision",
    "text": "(A) — the tile stays whole. F-15's component assignment resolves as Accounts & saved jobs (component level).",
-   "by": "Andy"
+   "by": "Andy",
+   "reopens_when": "Reopens if the tile split is proposed again and ruled the other way on the governor's tap.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 19,
@@ -1665,7 +1691,9 @@
    "subject": "G-2 / D-14",
    "kind": "decision",
    "text": "Price set provisionally, pending the partners' reviews; the figure is carried in the partners' record and prints on no public surface.",
-   "by": "Andy (ruling, 2026-10-26)"
+   "by": "Andy (ruling, 2026-10-26)",
+   "reopens_when": "Closed by its own condition: the reviews ran, and seq 23 ruled the figure with conditions. This provisional set no longer stands on its own.",
+   "reopens_when_source": "recorded-chain"
   },
   {
    "seq": 22,
@@ -1681,7 +1709,9 @@
    "subject": "G-2 / D-14",
    "kind": "decision",
    "text": "Price RULED, with all five conditions attached and binding; the figure prints per the launch sequence, not before.",
-   "by": "Andy (confirmation, 2026-10-26)"
+   "by": "Andy (confirmation, 2026-10-26)",
+   "reopens_when": "Reopens at the re-price events its conditions carry — the payer count, the checkout-attempt count, or the days-live mark — and if a condition breaks (the coach-tier guard or the LLM tripwire), the figure is re-ruled then.",
+   "reopens_when_source": "recorded"
   },
   {
    "seq": 24,
@@ -1697,7 +1727,9 @@
    "subject": "Public data file — exposure found; full cure ruled",
    "kind": "decision",
    "text": "Outside review, 2026-10-26 (verified against the live file and both rule lines).",
-   "by": "Andy (full cure ruled 2026-10-26, on the verified return)"
+   "by": "Andy (full cure ruled 2026-10-26, on the verified return)",
+   "reopens_when": "Reopens if a new exposure is found in the public file — the public-fit standard this cure set is the standing test.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 26,
@@ -1705,7 +1737,9 @@
    "subject": "Refinement landing — schema 2.6 (claim-strength) + the guide fields + the G-3 proof edit",
    "kind": "decision",
    "text": "The claim-strength adoption + the refinement firing, both 2026-10-26; the guide round's landing record for the deviation and the proof's pre-registration.",
-   "by": "Andy (the refinement round + the claim-strength adoption, 2026-10-26)"
+   "by": "Andy (the refinement round + the claim-strength adoption, 2026-10-26)",
+   "reopens_when": "Reopens at the next schema refinement — a landing of this class supersedes it, as this one superseded the schema before it.",
+   "reopens_when_source": "composed-2026-11-05"
   },
   {
    "seq": 27,
@@ -1861,6 +1895,14 @@
    "subject": "register",
    "kind": "record",
    "text": "ORDER 3a PUBLISH VERIFIED LIVE (2026-11-05): the board's published face now carries the pickups build. The published copy was rendered end-to-end (fresh profile, the live feed fetched by the app itself): the stamp reads this register, the pickup shelf lists both holdings, and Your move reads 2 again. The same publish closed the interim skew the 3a landing had opened: between the register's migration (which removed the rows' claim fields) and this publish, the standing published copy — built from the earlier code — read holding from those fields and showed both moves at 0. The record was never wrong; the face was one publish behind, and the correction is on the landing records' faces."
+  },
+  {
+   "seq": 49,
+   "at": "2026-11-05",
+   "subject": "register",
+   "kind": "record",
+   "text": "All 17 decision records gain a reopens_when line (with its source marked: recorded in the decision's own record, read off its chain, or composed at this landing and marked composed). No decision's standing, text, or strength changes.",
+   "by": "Andy"
   }
  ],
  "history_notes": [],
@@ -1980,13 +2022,13 @@
  },
  "_stamp": {
   "derived_from": "moopgit/quotajobs-workspace board/register.json",
-  "register_commit": "bf4382c5",
-  "register_snapshot": "2026-11-05 ET (register 2.6 · 38 components · 10 parts · 48 history entries)",
+  "register_commit": "bdccfe63",
+  "register_snapshot": "2026-11-05 ET (register 2.6 · 38 components · 10 parts · 49 history entries)",
   "sides_asof": {
    "andy": "2026-11-03",
    "tony": "2026-10-24"
   },
-  "derived_at": "2026-11-05 09:13 EST",
+  "derived_at": "2026-11-05 13:09 EST",
   "derivation": "Verbatim copy of the register, less the history schema definition (history_definition — an internal schema text) and less any internal field (rulings and one-side positions not yet jointly confirmed), plus a public-fit scrub (ruled 2026-10-26): call summaries withheld, the payments tile's detail generalized, the price block replaced by its partners-facing badge (the badge's status and note are the public form of the partners' shared position, not the register's internal state), org and repo paths replaced whole as values, and the partner's organization, company, and provider names generalized — the board's content is partner-private in substance and public only in the classes that fit a public page, plus this stamp. The snapshot line is generated by the derivation from the register's own counts. Selection: the component tree and the standing principles cross whole; tiles, gaps, and rows carry their component and node keys and, from schema 2.5, their guide fields (blocked_by and couples_with edges, kind_of_work, watch_tags, and the decision-time how). The board renders this data and nothing else. Order 2 (2026-11-03): the extract also carries the partners' proposals folded to their derived state and the discussion notes grouped by item, provenance reduced to origin and its derived verification status."
  }
 }
